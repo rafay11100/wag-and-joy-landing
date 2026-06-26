@@ -1,29 +1,630 @@
 import { createFileRoute } from "@tanstack/react-router";
+import {
+  ShieldCheck,
+  HeartPulse,
+  PawPrint,
+  Phone,
+  Mail,
+  Globe,
+  MapPin,
+  Facebook,
+  Instagram,
+  Menu,
+  X,
+  Quote,
+  Star,
+} from "lucide-react";
+import { useState } from "react";
+import heroDog from "@/assets/hero-dog.jpg";
+import camillaPhoto from "@/assets/camilla.jpg";
+import serviceSolo from "@/assets/service-solo.jpg";
+import servicePack from "@/assets/service-pack.jpg";
+import serviceDropin from "@/assets/service-dropin.jpg";
+import logoMark from "@/assets/logo-mark.png";
+
+const ROVER_URL =
+  "https://www.rover.com/members/camilla-h-wags-and-joy-pet-care-llc/";
 
 export const Route = createFileRoute("/")({
   head: () => ({
     meta: [
-      { title: "Your App" },
-      { name: "description", content: "Replace this with a one-sentence description of your app." },
-      { property: "og:title", content: "Your App" },
-      { property: "og:description", content: "Replace this with a one-sentence description of your app." },
+      { title: "Wags and Joy Pet Care — Friendly Dog Walking in Davison, MI" },
+      {
+        name: "description",
+        content:
+          "Wags and Joy Pet Care offers trusted, insured, first-aid-certified dog walking and drop-in visits in Davison and the surrounding area. Book your free meet & greet today.",
+      },
+      { property: "og:title", content: "Wags and Joy Pet Care" },
+      {
+        property: "og:description",
+        content:
+          "Friendly, professional dog walking you can trust. Solo walks, pack walks, and drop-in visits in Davison, MI.",
+      },
+      { property: "og:type", content: "website" },
     ],
   }),
-  component: Index,
+  component: Landing,
 });
 
-// IMPORTANT: Replace this placeholder. See ./README.md for routing conventions.
-function Index() {
+const NAV = [
+  { href: "#about", label: "About" },
+  { href: "#services", label: "Services" },
+  { href: "#meet", label: "Meet & Greet" },
+  { href: "#reviews", label: "Reviews" },
+  { href: "#area", label: "Service Area" },
+  { href: "#contact", label: "Contact" },
+];
+
+function Logo({ className = "" }: { className?: string }) {
   return (
-    <div
-      className="flex min-h-screen items-center justify-center"
-      style={{ backgroundColor: "#fcfbf8" }}
-    >
+    <a href="#top" className={`flex items-center gap-3 ${className}`}>
       <img
-        data-lovable-blank-page-placeholder="REMOVE_THIS"
-        src="https://cdn.gpteng.co/blank-app-v1.svg"
-        alt="Your app will live here!"
+        src={logoMark}
+        alt=""
+        width={64}
+        height={64}
+        className="h-14 w-14 sm:h-16 sm:w-16"
       />
+      <span className="flex flex-col leading-none">
+        <span className="font-script text-3xl sm:text-4xl text-navy">
+          Wags and Joy
+        </span>
+        <span className="font-serif-display text-[0.7rem] sm:text-xs tracking-[0.35em] uppercase text-navy-soft mt-1">
+          Pet Care
+        </span>
+      </span>
+    </a>
+  );
+}
+
+function TrustBadge({
+  icon: Icon,
+  children,
+}: {
+  icon: typeof ShieldCheck;
+  children: React.ReactNode;
+}) {
+  return (
+    <span className="inline-flex items-center gap-1.5 rounded-full bg-cream-deep px-3 py-1 text-xs font-semibold text-navy">
+      <Icon className="h-3.5 w-3.5 text-gold" strokeWidth={2.5} />
+      {children}
+    </span>
+  );
+}
+
+function PillButton({
+  href,
+  children,
+  variant = "primary",
+  className = "",
+}: {
+  href: string;
+  children: React.ReactNode;
+  variant?: "primary" | "ghost" | "gold";
+  className?: string;
+}) {
+  const base =
+    "inline-flex items-center justify-center rounded-full px-7 py-3.5 text-sm font-bold uppercase tracking-wider transition-all duration-200 hover:-translate-y-0.5 shadow-sm hover:shadow-md";
+  const styles = {
+    primary: "bg-navy text-cream hover:bg-navy-soft",
+    gold: "bg-gold text-navy hover:bg-gold-soft",
+    ghost: "border-2 border-navy text-navy hover:bg-navy hover:text-cream",
+  };
+  return (
+    <a
+      href={href}
+      target={href.startsWith("http") ? "_blank" : undefined}
+      rel={href.startsWith("http") ? "noopener noreferrer" : undefined}
+      className={`${base} ${styles[variant]} ${className}`}
+    >
+      {children}
+    </a>
+  );
+}
+
+function Blob({
+  className = "",
+  color = "var(--cream-deep)",
+  flip = false,
+}: {
+  className?: string;
+  color?: string;
+  flip?: boolean;
+}) {
+  return (
+    <svg
+      className={`block w-full h-12 sm:h-16 ${className}`}
+      viewBox="0 0 1440 80"
+      preserveAspectRatio="none"
+      aria-hidden="true"
+      style={flip ? { transform: "scaleY(-1)" } : undefined}
+    >
+      <path
+        d="M0,80 C240,10 480,75 720,40 C960,5 1200,75 1440,30 L1440,80 L0,80 Z"
+        fill={color}
+      />
+    </svg>
+  );
+}
+
+function Landing() {
+  const [menuOpen, setMenuOpen] = useState(false);
+
+  return (
+    <div id="top" className="min-h-screen bg-cream text-navy">
+      {/* HEADER */}
+      <header className="sticky top-0 z-50 bg-cream/90 backdrop-blur-md border-b border-cream-deep">
+        <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+          <div className="flex items-center justify-between py-3">
+            <Logo />
+            <nav className="hidden lg:flex items-center gap-7">
+              {NAV.map((n) => (
+                <a
+                  key={n.href}
+                  href={n.href}
+                  className="text-sm font-semibold text-navy hover:text-gold transition-colors"
+                >
+                  {n.label}
+                </a>
+              ))}
+              <PillButton href={ROVER_URL} variant="gold" className="!py-2.5 !px-5">
+                Book Now
+              </PillButton>
+            </nav>
+            <button
+              onClick={() => setMenuOpen((v) => !v)}
+              className="lg:hidden rounded-full p-2 text-navy hover:bg-cream-deep"
+              aria-label="Toggle menu"
+            >
+              {menuOpen ? <X className="h-6 w-6" /> : <Menu className="h-6 w-6" />}
+            </button>
+          </div>
+          <div className="hidden sm:flex items-center gap-2 pb-2 -mt-1">
+            <TrustBadge icon={ShieldCheck}>Fully Insured</TrustBadge>
+            <TrustBadge icon={HeartPulse}>Pet First Aid Trained</TrustBadge>
+          </div>
+          {menuOpen && (
+            <div className="lg:hidden pb-4 flex flex-col gap-1 border-t border-cream-deep pt-3">
+              {NAV.map((n) => (
+                <a
+                  key={n.href}
+                  href={n.href}
+                  onClick={() => setMenuOpen(false)}
+                  className="rounded-lg px-3 py-2 text-sm font-semibold text-navy hover:bg-cream-deep"
+                >
+                  {n.label}
+                </a>
+              ))}
+              <PillButton href={ROVER_URL} variant="gold" className="mt-2 self-start">
+                Book Now
+              </PillButton>
+            </div>
+          )}
+        </div>
+      </header>
+
+      {/* HERO */}
+      <section className="relative overflow-hidden bg-cream">
+        <div className="absolute -top-32 -right-32 h-96 w-96 rounded-full bg-gold-soft/40 blur-3xl" aria-hidden />
+        <div className="absolute -bottom-24 -left-24 h-80 w-80 rounded-full bg-blush/50 blur-3xl" aria-hidden />
+        <div className="relative mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 py-16 sm:py-24 lg:py-28">
+          <div className="grid lg:grid-cols-2 gap-12 lg:gap-16 items-center">
+            <div className="text-center lg:text-left">
+              <span className="font-script text-3xl text-gold">Hello, friend!</span>
+              <h1 className="mt-2 font-serif-display text-4xl sm:text-5xl lg:text-6xl leading-[1.05] text-navy">
+                Friendly and Professional Dog Walking You Can Trust.
+              </h1>
+              <p className="mt-6 text-lg text-navy-soft max-w-xl mx-auto lg:mx-0 leading-relaxed">
+                Individual, caring attention for every dog — because your pup
+                deserves a walk that feels like a play date with a friend.
+              </p>
+              <div className="mt-8 flex flex-wrap gap-3 justify-center lg:justify-start">
+                <PillButton href={ROVER_URL} variant="primary">
+                  Book Now
+                </PillButton>
+                <PillButton href="#services" variant="ghost">
+                  Our Services
+                </PillButton>
+              </div>
+              <div className="mt-8 flex flex-wrap gap-2 justify-center lg:justify-start sm:hidden">
+                <TrustBadge icon={ShieldCheck}>Fully Insured</TrustBadge>
+                <TrustBadge icon={HeartPulse}>Pet First Aid Trained</TrustBadge>
+              </div>
+            </div>
+            <div className="relative">
+              <div className="absolute inset-0 rounded-full bg-gold/30 blur-2xl scale-90" aria-hidden />
+              <div className="relative aspect-square max-w-md mx-auto rounded-full overflow-hidden ring-8 ring-cream shadow-2xl">
+                <img
+                  src={heroDog}
+                  alt="Happy golden retriever jumping joyfully in a sunny park"
+                  width={1280}
+                  height={1280}
+                  className="h-full w-full object-cover"
+                />
+              </div>
+              <div className="absolute -top-4 -right-2 rounded-full bg-cream px-4 py-2 shadow-lg flex items-center gap-2 rotate-6">
+                <PawPrint className="h-4 w-4 text-gold" />
+                <span className="text-xs font-bold text-navy">Tail-wag guaranteed</span>
+              </div>
+              <div className="absolute -bottom-3 -left-2 rounded-full bg-navy text-cream px-4 py-2 shadow-lg flex items-center gap-2 -rotate-3">
+                <HeartPulse className="h-4 w-4 text-gold" />
+                <span className="text-xs font-bold">First-aid certified</span>
+              </div>
+            </div>
+          </div>
+        </div>
+        <Blob color="var(--cream-deep)" />
+      </section>
+
+      {/* ABOUT */}
+      <section id="about" className="bg-cream-deep">
+        <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 py-20 lg:py-24">
+          <div className="grid lg:grid-cols-2 gap-12 lg:gap-20 items-center">
+            <div className="relative order-2 lg:order-1">
+              <div className="absolute -top-6 -left-6 h-24 w-24 rounded-full bg-gold/40" aria-hidden />
+              <div className="absolute -bottom-6 -right-6 h-32 w-32 rounded-full bg-blush/60" aria-hidden />
+              <div className="relative aspect-square max-w-md mx-auto rounded-full overflow-hidden ring-8 ring-cream shadow-xl">
+                <img
+                  src={camillaPhoto}
+                  alt="Camilla Herod smiling with a happy dog"
+                  width={1024}
+                  height={1024}
+                  loading="lazy"
+                  className="h-full w-full object-cover"
+                />
+              </div>
+            </div>
+            <div className="order-1 lg:order-2 text-center lg:text-left">
+              <span className="font-script text-3xl text-gold">About me</span>
+              <h2 className="mt-1 text-4xl sm:text-5xl text-navy">
+                Your Pet Is Part of Our Family
+              </h2>
+              <div className="mt-6 space-y-4 text-navy-soft leading-relaxed">
+                <p>
+                  Hi, I'm Camilla — the heart behind Wags and Joy Pet Care. I've
+                  spent my life surrounded by animals, and turning that love
+                  into a profession has been the most natural step in the world.
+                  Every dog who walks with me gets patience, presence, and play.
+                </p>
+                <p>
+                  I'm <strong className="text-navy">American Red Cross Cat
+                  and Dog First Aid certified</strong>, fully insured, and
+                  committed to treating your pup the way I treat my own — like
+                  family. From energetic adventurers to gentle seniors, I tailor
+                  every visit to who your dog actually is.
+                </p>
+              </div>
+              <div className="mt-8 grid grid-cols-3 gap-4 max-w-md mx-auto lg:mx-0">
+                {[
+                  { num: "100%", label: "Insured" },
+                  { num: "Red Cross", label: "Certified" },
+                  { num: "5★", label: "Rover Rated" },
+                ].map((s) => (
+                  <div
+                    key={s.label}
+                    className="rounded-2xl bg-cream p-4 text-center shadow-sm"
+                  >
+                    <div className="font-serif-display text-lg font-bold text-navy">
+                      {s.num}
+                    </div>
+                    <div className="text-xs uppercase tracking-wider text-navy-soft mt-1">
+                      {s.label}
+                    </div>
+                  </div>
+                ))}
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* SERVICES */}
+      <section id="services" className="bg-cream">
+        <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 py-20 lg:py-28">
+          <div className="text-center max-w-2xl mx-auto">
+            <span className="font-script text-3xl text-gold">What we offer</span>
+            <h2 className="mt-1 text-4xl sm:text-5xl text-navy">
+              Walks &amp; Visits, Tailored to Your Pup
+            </h2>
+            <p className="mt-4 text-navy-soft">
+              Choose the care that fits your dog's personality and your
+              schedule — every option includes the love and attention as standard.
+            </p>
+          </div>
+          <div className="mt-14 grid md:grid-cols-3 gap-8">
+            {[
+              {
+                title: "Solo Walks",
+                desc: "One-on-one walks for dogs who do best with undivided attention and their own pace.",
+                img: serviceSolo,
+              },
+              {
+                title: "Household Pack Walks",
+                desc: "Two or more pups from the same family, walked together for double the fun.",
+                img: servicePack,
+              },
+              {
+                title: "Drop-In Visits",
+                desc: "Feeding, potty breaks, fresh water, and plenty of cuddles when you're away.",
+                img: serviceDropin,
+              },
+            ].map((s) => (
+              <article
+                key={s.title}
+                className="group rounded-3xl bg-card p-6 shadow-sm hover:shadow-xl transition-all duration-300 hover:-translate-y-1"
+              >
+                <div className="aspect-square rounded-full overflow-hidden ring-4 ring-cream-deep mx-auto max-w-[220px]">
+                  <img
+                    src={s.img}
+                    alt={s.title}
+                    width={800}
+                    height={800}
+                    loading="lazy"
+                    className="h-full w-full object-cover group-hover:scale-105 transition-transform duration-500"
+                  />
+                </div>
+                <h3 className="mt-6 text-2xl text-center text-navy">{s.title}</h3>
+                <p className="mt-3 text-center text-navy-soft leading-relaxed">
+                  {s.desc}
+                </p>
+              </article>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* MEET & GREET */}
+      <section id="meet" className="bg-cream">
+        <div className="mx-auto max-w-5xl px-4 sm:px-6 lg:px-8 pb-20 lg:pb-28">
+          <div className="relative overflow-hidden rounded-[2.5rem] bg-navy text-cream px-8 py-12 sm:p-14 lg:p-16 shadow-xl">
+            <div className="absolute -top-16 -right-16 h-64 w-64 rounded-full bg-gold/30 blur-2xl" aria-hidden />
+            <div className="absolute -bottom-16 -left-16 h-64 w-64 rounded-full bg-gold/20 blur-2xl" aria-hidden />
+            <div className="relative grid lg:grid-cols-[1fr_auto] gap-8 items-center">
+              <div>
+                <span className="font-script text-3xl text-gold">It's on us</span>
+                <h2 className="mt-1 text-3xl sm:text-4xl lg:text-5xl text-cream">
+                  Free Meet &amp; Greet for All New Clients
+                </h2>
+                <p className="mt-4 text-cream/80 max-w-xl leading-relaxed">
+                  A relaxed chance to get to know you and your dog before the
+                  first walk — so everyone feels comfortable from day one.
+                </p>
+              </div>
+              <PillButton href={ROVER_URL} variant="gold" className="self-start lg:self-center">
+                Schedule yours
+              </PillButton>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* TESTIMONIALS */}
+      <section id="reviews" className="bg-cream-deep">
+        <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 py-20 lg:py-28">
+          <div className="text-center max-w-2xl mx-auto">
+            <span className="font-script text-3xl text-gold">Kind words</span>
+            <h2 className="mt-1 text-4xl sm:text-5xl text-navy">
+              From Happy Humans &amp; Tails
+            </h2>
+          </div>
+          <div className="mt-14 grid md:grid-cols-2 gap-8">
+            {[
+              {
+                quote:
+                  "Camilla was absolutely wonderful with our dog. She communicated throughout the visit, sent photos, and you can tell she genuinely loves animals. We came home to a happy, relaxed pup.",
+                name: "Sarah M.",
+                role: "Rover Client",
+              },
+              {
+                quote:
+                  "We feel so lucky to have found Camilla. She's reliable, kind, and clearly experienced. Our dog gets so excited every time he sees her — that says everything we need to know.",
+                name: "Jason &amp; Emily T.",
+                role: "Rover Client",
+              },
+            ].map((t) => (
+              <figure
+                key={t.name}
+                className="relative rounded-3xl bg-cream p-8 sm:p-10 shadow-sm"
+              >
+                <Quote
+                  className="absolute -top-5 left-8 h-10 w-10 text-gold bg-cream-deep rounded-full p-2"
+                  aria-hidden
+                />
+                <div className="flex gap-1 mb-4">
+                  {[...Array(5)].map((_, i) => (
+                    <Star key={i} className="h-4 w-4 fill-gold text-gold" />
+                  ))}
+                </div>
+                <blockquote className="text-navy leading-relaxed font-serif-display text-lg italic">
+                  "{t.quote}"
+                </blockquote>
+                <figcaption className="mt-6 flex items-center gap-3">
+                  <div className="h-10 w-10 rounded-full bg-gold/30 grid place-items-center">
+                    <PawPrint className="h-5 w-5 text-navy" />
+                  </div>
+                  <div>
+                    <div
+                      className="font-bold text-navy"
+                      dangerouslySetInnerHTML={{ __html: t.name }}
+                    />
+                    <div className="text-xs text-navy-soft uppercase tracking-wider">
+                      {t.role}
+                    </div>
+                  </div>
+                </figcaption>
+              </figure>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* SERVICE AREA */}
+      <section id="area" className="bg-cream">
+        <div className="mx-auto max-w-5xl px-4 sm:px-6 lg:px-8 py-20 lg:py-24 text-center">
+          <div className="inline-flex items-center justify-center h-16 w-16 rounded-full bg-gold/20 mb-6">
+            <MapPin className="h-8 w-8 text-navy" />
+          </div>
+          <h2 className="text-4xl sm:text-5xl text-navy">
+            Serving Davison &amp; the Surrounding Area
+          </h2>
+          <p className="mt-4 text-navy-soft max-w-xl mx-auto">
+            Based in Davison, Michigan — happily walking and visiting dogs
+            throughout the local community. Not sure if you're in range? Just ask!
+          </p>
+        </div>
+      </section>
+
+      {/* BIG CTA */}
+      <section className="bg-cream pb-20 lg:pb-28">
+        <div className="mx-auto max-w-6xl px-4 sm:px-6 lg:px-8">
+          <div className="relative overflow-hidden rounded-[2.5rem] bg-gradient-to-br from-gold via-gold-soft to-cream-deep p-10 sm:p-16 text-center shadow-xl">
+            <PawPrint className="absolute top-6 left-6 h-10 w-10 text-navy/15 -rotate-12" aria-hidden />
+            <PawPrint className="absolute bottom-6 right-8 h-12 w-12 text-navy/15 rotate-12" aria-hidden />
+            <PawPrint className="absolute top-1/2 right-12 h-6 w-6 text-navy/10" aria-hidden />
+            <span className="font-script text-3xl text-navy">Ready when you are</span>
+            <h2 className="mt-1 text-4xl sm:text-5xl text-navy">
+              Let's Plan Your Pup's Next Adventure
+            </h2>
+            <p className="mt-4 text-navy/80 max-w-xl mx-auto">
+              Book through Rover in a few clicks — meet &amp; greet always on the house.
+            </p>
+            <div className="mt-8">
+              <PillButton href={ROVER_URL} variant="primary" className="!px-10 !py-4 text-base">
+                Book Now on Rover
+              </PillButton>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* CONTACT / FOOTER */}
+      <footer id="contact" className="bg-navy text-cream">
+        <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 py-16 lg:py-20">
+          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-10">
+            <div>
+              <div className="flex items-center gap-3">
+                <img
+                  src={logoMark}
+                  alt=""
+                  width={64}
+                  height={64}
+                  className="h-14 w-14 invert brightness-0 opacity-90"
+                />
+                <div className="flex flex-col leading-none">
+                  <span className="font-script text-3xl text-cream">
+                    Wags and Joy
+                  </span>
+                  <span className="font-serif-display text-[0.7rem] tracking-[0.35em] uppercase text-cream/70 mt-1">
+                    Pet Care
+                  </span>
+                </div>
+              </div>
+              <p className="mt-5 text-cream/70 leading-relaxed max-w-sm">
+                Friendly, insured, first-aid certified dog walking and drop-in
+                visits in Davison, Michigan.
+              </p>
+              <div className="mt-6 flex gap-3">
+                <a
+                  href="https://facebook.com"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  aria-label="Facebook"
+                  className="h-10 w-10 grid place-items-center rounded-full bg-cream/10 hover:bg-gold hover:text-navy transition-colors"
+                >
+                  <Facebook className="h-5 w-5" />
+                </a>
+                <a
+                  href="https://instagram.com"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  aria-label="Instagram"
+                  className="h-10 w-10 grid place-items-center rounded-full bg-cream/10 hover:bg-gold hover:text-navy transition-colors"
+                >
+                  <Instagram className="h-5 w-5" />
+                </a>
+              </div>
+            </div>
+
+            <div>
+              <h3 className="text-cream font-serif-display text-xl">Get in Touch</h3>
+              <ul className="mt-5 space-y-3 text-sm">
+                <li>
+                  <a
+                    href="mailto:camilla@wagsandjoy.com"
+                    className="flex items-center gap-3 text-cream/80 hover:text-gold"
+                  >
+                    <Mail className="h-4 w-4 text-gold" />
+                    camilla@wagsandjoy.com
+                  </a>
+                </li>
+                <li>
+                  <a
+                    href="tel:+17207389557"
+                    className="flex items-center gap-3 text-cream/80 hover:text-gold"
+                  >
+                    <Phone className="h-4 w-4 text-gold" />
+                    +1 (720) 738-9557
+                  </a>
+                </li>
+                <li>
+                  <a
+                    href="https://wagsandjoy.com"
+                    className="flex items-center gap-3 text-cream/80 hover:text-gold"
+                  >
+                    <Globe className="h-4 w-4 text-gold" />
+                    wagsandjoy.com
+                  </a>
+                </li>
+                <li>
+                  <a
+                    href={ROVER_URL}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="flex items-center gap-3 text-cream/80 hover:text-gold"
+                  >
+                    <PawPrint className="h-4 w-4 text-gold" />
+                    Rover profile
+                  </a>
+                </li>
+                <li className="flex items-center gap-3 text-cream/80">
+                  <MapPin className="h-4 w-4 text-gold" />
+                  Davison, Michigan
+                </li>
+              </ul>
+            </div>
+
+            <div>
+              <h3 className="text-cream font-serif-display text-xl">
+                Ready to Book?
+              </h3>
+              <p className="mt-3 text-cream/70 text-sm leading-relaxed">
+                Schedule a free meet &amp; greet and let's see if we're the
+                right fit for your dog.
+              </p>
+              <div className="mt-5">
+                <PillButton href={ROVER_URL} variant="gold">
+                  Book on Rover
+                </PillButton>
+              </div>
+              <div className="mt-6 flex flex-wrap gap-2">
+                <span className="inline-flex items-center gap-1.5 rounded-full bg-cream/10 px-3 py-1 text-xs font-semibold text-cream">
+                  <ShieldCheck className="h-3.5 w-3.5 text-gold" />
+                  Fully Insured
+                </span>
+                <span className="inline-flex items-center gap-1.5 rounded-full bg-cream/10 px-3 py-1 text-xs font-semibold text-cream">
+                  <HeartPulse className="h-3.5 w-3.5 text-gold" />
+                  Pet First Aid
+                </span>
+              </div>
+            </div>
+          </div>
+
+          <div className="mt-14 pt-8 border-t border-cream/15 flex flex-col sm:flex-row gap-3 items-center justify-between text-xs text-cream/60">
+            <p>© {new Date().getFullYear()} Wags and Joy Pet Care LLC. All rights reserved.</p>
+            <p>Made with love for dogs in Davison, MI.</p>
+          </div>
+        </div>
+      </footer>
     </div>
   );
 }
