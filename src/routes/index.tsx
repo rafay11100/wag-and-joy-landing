@@ -15,12 +15,25 @@ import {
   Star,
 } from "lucide-react";
 import { useState } from "react";
-import heroDog from "@/assets/hero-dog.jpg";
-import camillaPhoto from "@/assets/camilla.jpg";
-import serviceSolo from "@/assets/service-solo.jpg";
-import servicePack from "@/assets/service-pack.jpg";
-import serviceDropin from "@/assets/service-dropin.jpg";
-import logoMark from "@/assets/logo-mark.png";
+import logoAsset from "@/assets/logo.jpg.asset.json";
+import heroDogAsset from "@/assets/dog-hero.webp.asset.json";
+import camillaAsset from "@/assets/camilla.webp.asset.json";
+import camillaDogAsset from "@/assets/camilla-dog.webp.asset.json";
+import portraitAsset from "@/assets/portrait.webp.asset.json";
+import dogSitAsset from "@/assets/dog-sit.webp.asset.json";
+import dogTrailAsset from "@/assets/dog-trail.webp.asset.json";
+import dogBallAsset from "@/assets/dog-ball.webp.asset.json";
+import dogGrassAsset from "@/assets/dog-grass.webp.asset.json";
+
+const logoUrl = logoAsset.url;
+const heroDog = heroDogAsset.url;
+const camillaPhoto = camillaAsset.url;
+const camillaDog = camillaDogAsset.url;
+const portrait = portraitAsset.url;
+const serviceSolo = dogSitAsset.url;
+const servicePack = dogTrailAsset.url;
+const serviceDropin = dogBallAsset.url;
+const dogGrass = dogGrassAsset.url;
 
 const ROVER_URL =
   "https://www.rover.com/members/camilla-h-wags-and-joy-pet-care-llc/";
@@ -41,6 +54,9 @@ export const Route = createFileRoute("/")({
           "Friendly, professional dog walking you can trust. Solo walks, pack walks, and drop-in visits in Davison, MI.",
       },
       { property: "og:type", content: "website" },
+      { property: "og:image", content: heroDogAsset.url },
+      { name: "twitter:card", content: "summary_large_image" },
+      { name: "twitter:image", content: heroDogAsset.url },
     ],
   }),
   component: Landing,
@@ -54,28 +70,6 @@ const NAV = [
   { href: "#area", label: "Service Area" },
   { href: "#contact", label: "Contact" },
 ];
-
-function Logo({ className = "" }: { className?: string }) {
-  return (
-    <a href="#top" className={`flex items-center gap-3 ${className}`}>
-      <img
-        src={logoMark}
-        alt=""
-        width={64}
-        height={64}
-        className="h-14 w-14 sm:h-16 sm:w-16"
-      />
-      <span className="flex flex-col leading-none">
-        <span className="font-script text-3xl sm:text-4xl text-navy">
-          Wags and Joy
-        </span>
-        <span className="font-serif-display text-[0.7rem] sm:text-xs tracking-[0.35em] uppercase text-navy-soft mt-1">
-          Pet Care
-        </span>
-      </span>
-    </a>
-  );
-}
 
 function TrustBadge({
   icon: Icon,
@@ -152,25 +146,57 @@ function Landing() {
 
   return (
     <div id="top" className="min-h-screen bg-cream text-navy">
+      {/* TOP CONTACT STRIP */}
+      <div className="hidden md:block bg-navy text-cream/90 text-xs">
+        <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 flex items-center justify-between py-2">
+          <div className="flex items-center gap-5">
+            <a href="tel:+17207389557" className="flex items-center gap-1.5 hover:text-gold transition-colors">
+              <Phone className="h-3.5 w-3.5 text-gold" /> (720) 738-9557
+            </a>
+            <a href="mailto:camilla@wagsandjoy.com" className="flex items-center gap-1.5 hover:text-gold transition-colors">
+              <Mail className="h-3.5 w-3.5 text-gold" /> camilla@wagsandjoy.com
+            </a>
+            <span className="flex items-center gap-1.5">
+              <MapPin className="h-3.5 w-3.5 text-gold" /> Davison, Michigan
+            </span>
+          </div>
+          <div className="flex items-center gap-3">
+            <span className="inline-flex items-center gap-1.5"><ShieldCheck className="h-3.5 w-3.5 text-gold" /> Fully Insured</span>
+            <span className="opacity-40">·</span>
+            <span className="inline-flex items-center gap-1.5"><HeartPulse className="h-3.5 w-3.5 text-gold" /> Red Cross Pet First Aid</span>
+          </div>
+        </div>
+      </div>
+
       {/* HEADER */}
-      <header className="sticky top-0 z-50 bg-cream/90 backdrop-blur-md border-b border-cream-deep">
+      <header className="sticky top-0 z-50 bg-cream/95 backdrop-blur-md border-b border-cream-deep shadow-sm">
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-          <div className="flex items-center justify-between py-3">
-            <Logo />
+          <div className="flex items-center justify-between gap-4 py-3">
+            <a href="#top" className="flex items-center shrink-0" aria-label="Wags and Joy Pet Care">
+              <img
+                src={logoUrl}
+                alt="Wags and Joy Pet Care"
+                width={240}
+                height={240}
+                className="h-16 sm:h-20 w-auto object-contain"
+              />
+            </a>
             <nav className="hidden lg:flex items-center gap-7">
               {NAV.map((n) => (
                 <a
                   key={n.href}
                   href={n.href}
-                  className="text-sm font-semibold text-navy hover:text-gold transition-colors"
+                  className="relative text-sm font-bold uppercase tracking-wider text-navy hover:text-gold transition-colors after:content-[''] after:absolute after:left-0 after:-bottom-1 after:h-0.5 after:w-0 after:bg-gold after:transition-all hover:after:w-full"
                 >
                   {n.label}
                 </a>
               ))}
-              <PillButton href={ROVER_URL} variant="gold" className="!py-2.5 !px-5">
+            </nav>
+            <div className="hidden lg:block">
+              <PillButton href={ROVER_URL} variant="gold" className="!py-2.5 !px-6">
                 Book Now
               </PillButton>
-            </nav>
+            </div>
             <button
               onClick={() => setMenuOpen((v) => !v)}
               className="lg:hidden rounded-full p-2 text-navy hover:bg-cream-deep"
@@ -179,10 +205,6 @@ function Landing() {
               {menuOpen ? <X className="h-6 w-6" /> : <Menu className="h-6 w-6" />}
             </button>
           </div>
-          <div className="hidden sm:flex items-center gap-2 pb-2 -mt-1">
-            <TrustBadge icon={ShieldCheck}>Fully Insured</TrustBadge>
-            <TrustBadge icon={HeartPulse}>Pet First Aid Trained</TrustBadge>
-          </div>
           {menuOpen && (
             <div className="lg:hidden pb-4 flex flex-col gap-1 border-t border-cream-deep pt-3">
               {NAV.map((n) => (
@@ -190,7 +212,7 @@ function Landing() {
                   key={n.href}
                   href={n.href}
                   onClick={() => setMenuOpen(false)}
-                  className="rounded-lg px-3 py-2 text-sm font-semibold text-navy hover:bg-cream-deep"
+                  className="rounded-lg px-3 py-2 text-sm font-bold uppercase tracking-wider text-navy hover:bg-cream-deep"
                 >
                   {n.label}
                 </a>
@@ -226,7 +248,7 @@ function Landing() {
                   Our Services
                 </PillButton>
               </div>
-              <div className="mt-8 flex flex-wrap gap-2 justify-center lg:justify-start sm:hidden">
+              <div className="mt-8 flex flex-wrap gap-2 justify-center lg:justify-start md:hidden">
                 <TrustBadge icon={ShieldCheck}>Fully Insured</TrustBadge>
                 <TrustBadge icon={HeartPulse}>Pet First Aid Trained</TrustBadge>
               </div>
@@ -236,9 +258,9 @@ function Landing() {
               <div className="relative aspect-square max-w-md mx-auto rounded-full overflow-hidden ring-8 ring-cream shadow-2xl">
                 <img
                   src={heroDog}
-                  alt="Happy golden retriever jumping joyfully in a sunny park"
-                  width={1280}
-                  height={1280}
+                  alt="Happy blue heeler dog smiling on a red rock trail"
+                  width={1080}
+                  height={1080}
                   className="h-full w-full object-cover"
                 />
               </div>
@@ -266,11 +288,21 @@ function Landing() {
               <div className="relative aspect-square max-w-md mx-auto rounded-full overflow-hidden ring-8 ring-cream shadow-xl">
                 <img
                   src={camillaPhoto}
-                  alt="Camilla Herod smiling with a happy dog"
+                  alt="Camilla Herod, owner of Wags and Joy Pet Care"
                   width={1024}
                   height={1024}
                   loading="lazy"
                   className="h-full w-full object-cover"
+                />
+              </div>
+              <div className="hidden sm:block absolute -bottom-4 left-4 bg-cream rounded-2xl shadow-lg p-3 w-40 rotate-[-4deg]">
+                <img
+                  src={camillaDog}
+                  alt="Camilla with her dog outside"
+                  width={400}
+                  height={400}
+                  loading="lazy"
+                  className="rounded-xl aspect-square object-cover"
                 />
               </div>
             </div>
@@ -328,7 +360,7 @@ function Landing() {
             </h2>
             <p className="mt-4 text-navy-soft">
               Choose the care that fits your dog's personality and your
-              schedule — every option includes the love and attention as standard.
+              schedule — every option includes love and attention as standard.
             </p>
           </div>
           <div className="mt-14 grid md:grid-cols-3 gap-8">
@@ -418,7 +450,7 @@ function Landing() {
               {
                 quote:
                   "We feel so lucky to have found Camilla. She's reliable, kind, and clearly experienced. Our dog gets so excited every time he sees her — that says everything we need to know.",
-                name: "Jason &amp; Emily T.",
+                name: "Jason & Emily T.",
                 role: "Rover Client",
               },
             ].map((t) => (
@@ -443,16 +475,26 @@ function Landing() {
                     <PawPrint className="h-5 w-5 text-navy" />
                   </div>
                   <div>
-                    <div
-                      className="font-bold text-navy"
-                      dangerouslySetInnerHTML={{ __html: t.name }}
-                    />
+                    <div className="font-bold text-navy">{t.name}</div>
                     <div className="text-xs text-navy-soft uppercase tracking-wider">
                       {t.role}
                     </div>
                   </div>
                 </figcaption>
               </figure>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* GALLERY STRIP */}
+      <section aria-label="Happy clients" className="bg-cream-deep">
+        <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 pb-20">
+          <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
+            {[dogGrass, dogTrailAsset.url, dogBallAsset.url, portrait].map((src, i) => (
+              <div key={i} className="aspect-square rounded-2xl overflow-hidden shadow-md">
+                <img src={src} alt="" loading="lazy" className="h-full w-full object-cover hover:scale-105 transition-transform duration-500" />
+              </div>
             ))}
           </div>
         </div>
@@ -502,22 +544,14 @@ function Landing() {
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 py-16 lg:py-20">
           <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-10">
             <div>
-              <div className="flex items-center gap-3">
+              <div className="bg-cream rounded-2xl p-4 inline-block">
                 <img
-                  src={logoMark}
-                  alt=""
-                  width={64}
-                  height={64}
-                  className="h-14 w-14 invert brightness-0 opacity-90"
+                  src={logoUrl}
+                  alt="Wags and Joy Pet Care"
+                  width={240}
+                  height={240}
+                  className="h-20 w-auto object-contain"
                 />
-                <div className="flex flex-col leading-none">
-                  <span className="font-script text-3xl text-cream">
-                    Wags and Joy
-                  </span>
-                  <span className="font-serif-display text-[0.7rem] tracking-[0.35em] uppercase text-cream/70 mt-1">
-                    Pet Care
-                  </span>
-                </div>
               </div>
               <p className="mt-5 text-cream/70 leading-relaxed max-w-sm">
                 Friendly, insured, first-aid certified dog walking and drop-in
