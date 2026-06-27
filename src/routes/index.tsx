@@ -439,51 +439,36 @@ function Landing() {
               From Happy Humans &amp; Tails
             </h2>
           </div>
-          <div className="mt-14 grid md:grid-cols-2 gap-8">
-            {[
-              {
-                quote:
-                  "Camilla was absolutely wonderful with our dog. She communicated throughout the visit, sent photos, and you can tell she genuinely loves animals. We came home to a happy, relaxed pup.",
-                name: "Sarah M.",
-                role: "Rover Client",
-              },
-              {
-                quote:
-                  "We feel so lucky to have found Camilla. She's reliable, kind, and clearly experienced. Our dog gets so excited every time he sees her — that says everything we need to know.",
-                name: "Jason & Emily T.",
-                role: "Rover Client",
-              },
-            ].map((t) => (
-              <figure
-                key={t.name}
-                className="relative rounded-3xl bg-cream p-8 sm:p-10 shadow-sm"
-              >
-                <Quote
-                  className="absolute -top-5 left-8 h-10 w-10 text-gold bg-cream-deep rounded-full p-2"
-                  aria-hidden
-                />
-                <div className="flex gap-1 mb-4">
-                  {[...Array(5)].map((_, i) => (
-                    <Star key={i} className="h-4 w-4 fill-gold text-gold" />
-                  ))}
-                </div>
-                <blockquote className="text-navy leading-relaxed font-serif-display text-lg italic">
-                  "{t.quote}"
-                </blockquote>
-                <figcaption className="mt-6 flex items-center gap-3">
-                  <div className="h-10 w-10 rounded-full bg-gold/30 grid place-items-center">
-                    <PawPrint className="h-5 w-5 text-navy" />
-                  </div>
-                  <div>
-                    <div className="font-bold text-navy">{t.name}</div>
-                    <div className="text-xs text-navy-soft uppercase tracking-wider">
-                      {t.role}
-                    </div>
-                  </div>
-                </figcaption>
-              </figure>
-            ))}
+          <div className="mt-12 max-w-3xl mx-auto">
+            <figure className="relative rounded-3xl bg-cream p-8 sm:p-12 shadow-sm text-center">
+              <Quote
+                className="absolute -top-5 left-1/2 -translate-x-1/2 h-10 w-10 text-gold bg-cream-deep rounded-full p-2"
+                aria-hidden
+              />
+              <div className="flex gap-1 mb-4 justify-center">
+                {[...Array(5)].map((_, i) => (
+                  <Star key={i} className="h-4 w-4 fill-gold text-gold" />
+                ))}
+              </div>
+              <p className="text-navy leading-relaxed font-serif-display text-xl italic">
+                Real Rover reviews from Camilla's happy clients are on their way
+                — coming soon.
+              </p>
+              <figcaption className="mt-6 text-sm text-navy-soft">
+                In the meantime, you can read every review on her{" "}
+                <a
+                  href={ROVER_URL}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="text-navy font-bold underline decoration-gold underline-offset-4 hover:text-gold"
+                >
+                  Rover profile
+                </a>
+                .
+              </figcaption>
+            </figure>
           </div>
+
         </div>
       </section>
 
@@ -511,7 +496,9 @@ function Landing() {
           </h2>
           <p className="mt-4 text-navy-soft max-w-xl mx-auto">
             Based in Davison, Michigan — happily walking and visiting dogs
-            throughout the local community. Not sure if you're in range? Just ask!
+            throughout the local community. If you're just outside the area,
+            reach out anyway, we'd love to see if we can still make it work for
+            you and your pup.
           </p>
         </div>
       </section>
