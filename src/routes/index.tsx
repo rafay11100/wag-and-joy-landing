@@ -227,8 +227,8 @@ function Landing() {
 
       {/* HERO */}
       <section className="relative overflow-hidden bg-cream">
-        <div className="absolute -top-32 -right-32 h-96 w-96 rounded-full bg-gold-soft/40 blur-3xl" aria-hidden />
-        <div className="absolute -bottom-24 -left-24 h-80 w-80 rounded-full bg-blush/50 blur-3xl" aria-hidden />
+        <div className="absolute -top-32 -right-32 h-96 w-96 rounded-full bg-brand-yellow opacity-60" aria-hidden />
+        <div className="absolute -bottom-24 -left-24 h-80 w-80 rounded-full bg-brand-blue opacity-50" aria-hidden />
         <div className="relative mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 py-16 sm:py-24 lg:py-28">
           <div className="grid lg:grid-cols-2 gap-12 lg:gap-16 items-center">
             <div className="text-center lg:text-left">
@@ -237,7 +237,7 @@ function Landing() {
                 Friendly and Professional Dog Walking You Can Trust.
               </h1>
               <p className="mt-6 text-lg text-navy-soft max-w-xl mx-auto lg:mx-0 leading-relaxed">
-                Individual, caring attention for every dog — because your pup
+                Individual, caring attention for every dog, because your pup
                 deserves a walk that feels like a play date with a friend.
               </p>
               <div className="mt-8 flex flex-wrap gap-3 justify-center lg:justify-start">
@@ -254,7 +254,7 @@ function Landing() {
               </div>
             </div>
             <div className="relative">
-              <div className="absolute inset-0 rounded-full bg-gold/30 blur-2xl scale-90" aria-hidden />
+              <div className="absolute inset-0 rounded-full bg-brand-yellow opacity-40 scale-90" aria-hidden />
               <div className="relative aspect-square max-w-md mx-auto rounded-full overflow-hidden ring-8 ring-cream shadow-2xl">
                 <img
                   src={heroDog}
@@ -283,8 +283,8 @@ function Landing() {
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 py-20 lg:py-24">
           <div className="grid lg:grid-cols-2 gap-12 lg:gap-20 items-center">
             <div className="relative order-2 lg:order-1">
-              <div className="absolute -top-6 -left-6 h-24 w-24 rounded-full bg-gold/40" aria-hidden />
-              <div className="absolute -bottom-6 -right-6 h-32 w-32 rounded-full bg-blush/60" aria-hidden />
+              <div className="absolute -top-6 -left-6 h-24 w-24 rounded-full bg-brand-yellow" aria-hidden />
+              <div className="absolute -bottom-6 -right-6 h-32 w-32 rounded-full bg-brand-blue" aria-hidden />
               <div className="relative aspect-square max-w-md mx-auto rounded-full overflow-hidden ring-8 ring-cream shadow-xl">
                 <img
                   src={camillaPhoto}
@@ -313,7 +313,7 @@ function Landing() {
               </h2>
               <div className="mt-6 space-y-4 text-navy-soft leading-relaxed">
                 <p>
-                  Hi, I'm Camilla — the heart behind Wags and Joy Pet Care. I've
+                  Hi, I'm Camilla, the heart behind Wags and Joy Pet Care. I've
                   spent my life surrounded by animals, and turning that love
                   into a profession has been the most natural step in the world.
                   Every dog who walks with me gets patience, presence, and play.
@@ -321,7 +321,7 @@ function Landing() {
                 <p>
                   I'm <strong className="text-navy">American Red Cross Cat
                   and Dog First Aid certified</strong>, fully insured, and
-                  committed to treating your pup the way I treat my own — like
+                  committed to treating your pup the way I treat my own, like
                   family. From energetic adventurers to gentle seniors, I tailor
                   every visit to who your dog actually is.
                 </p>
@@ -360,7 +360,7 @@ function Landing() {
             </h2>
             <p className="mt-4 text-navy-soft">
               Choose the care that fits your dog's personality and your
-              schedule — every option includes love and attention as standard.
+              schedule. Every option includes love and attention as standard.
             </p>
           </div>
           <div className="mt-14 grid md:grid-cols-3 gap-8">
@@ -409,8 +409,8 @@ function Landing() {
       <section id="meet" className="bg-cream">
         <div className="mx-auto max-w-5xl px-4 sm:px-6 lg:px-8 pb-20 lg:pb-28">
           <div className="relative overflow-hidden rounded-[2.5rem] bg-navy text-cream px-8 py-12 sm:p-14 lg:p-16 shadow-xl">
-            <div className="absolute -top-16 -right-16 h-64 w-64 rounded-full bg-gold/30 blur-2xl" aria-hidden />
-            <div className="absolute -bottom-16 -left-16 h-64 w-64 rounded-full bg-gold/20 blur-2xl" aria-hidden />
+            <div className="absolute -top-16 -right-16 h-64 w-64 rounded-full bg-brand-yellow opacity-40" aria-hidden />
+            <div className="absolute -bottom-16 -left-16 h-64 w-64 rounded-full bg-brand-blue opacity-40" aria-hidden />
             <div className="relative grid lg:grid-cols-[1fr_auto] gap-8 items-center">
               <div>
                 <span className="font-script text-3xl text-gold">It's on us</span>
@@ -419,7 +419,7 @@ function Landing() {
                 </h2>
                 <p className="mt-4 text-cream/80 max-w-xl leading-relaxed">
                   A relaxed chance to get to know you and your dog before the
-                  first walk — so everyone feels comfortable from day one.
+                  first walk, so everyone feels comfortable from day one.
                 </p>
               </div>
               <PillButton href={ROVER_URL} variant="gold" className="self-start lg:self-center">
@@ -495,7 +495,7 @@ function Landing() {
             Serving Davison &amp; the Surrounding Area
           </h2>
           <p className="mt-4 text-navy-soft max-w-xl mx-auto">
-            Based in Davison, Michigan — happily walking and visiting dogs
+            Based in Davison, Michigan, happily walking and visiting dogs
             throughout the local community. If you're just outside the area,
             reach out anyway, we'd love to see if we can still make it work for
             you and your pup.
@@ -506,7 +506,7 @@ function Landing() {
       {/* BIG CTA */}
       <section className="bg-cream pb-20 lg:pb-28">
         <div className="mx-auto max-w-6xl px-4 sm:px-6 lg:px-8">
-          <div className="relative overflow-hidden rounded-[2.5rem] bg-gradient-to-br from-gold via-gold-soft to-cream-deep p-10 sm:p-16 text-center shadow-xl">
+          <div className="relative overflow-hidden rounded-[2.5rem] bg-gold-soft p-10 sm:p-16 text-center shadow-xl">
             <PawPrint className="absolute top-6 left-6 h-10 w-10 text-navy/15 -rotate-12" aria-hidden />
             <PawPrint className="absolute bottom-6 right-8 h-12 w-12 text-navy/15 rotate-12" aria-hidden />
             <PawPrint className="absolute top-1/2 right-12 h-6 w-6 text-navy/10" aria-hidden />
