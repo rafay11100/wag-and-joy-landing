@@ -65,8 +65,10 @@
   --color-gold-soft: var(--gold-soft);
   --color-blush: var(--blush);
   --color-sage: var(--sage);
+  --color-brand-blue: var(--brand-blue);
+  --color-brand-yellow: var(--brand-yellow);
 
-  --font-script: "Monsieur La Doulaise", cursive;
+  --font-script: "Caveat", "Comic Sans MS", cursive;
   --font-serif: "EB Garamond", "Cormorant Garamond", serif;
   --font-sans: "Nunito", system-ui, sans-serif;
 }
@@ -82,6 +84,8 @@
   --gold-soft: oklch(0.88 0.08 85);
   --blush: oklch(0.92 0.04 30);
   --sage: oklch(0.88 0.04 145);
+  --brand-blue: oklch(0.68 0.12 240);
+  --brand-yellow: oklch(0.86 0.16 92);
 
   --background: var(--cream);
   --foreground: var(--navy);
