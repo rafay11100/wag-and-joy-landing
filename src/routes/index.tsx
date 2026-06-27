@@ -41,7 +41,7 @@ const ROVER_URL =
 export const Route = createFileRoute("/")({
   head: () => ({
     meta: [
-      { title: "Wags and Joy Pet Care — Friendly Dog Walking in Davison, MI" },
+      { title: "Wags and Joy Pet Care · Friendly Dog Walking in Davison, MI" },
       {
         name: "description",
         content:
@@ -451,8 +451,8 @@ function Landing() {
                 ))}
               </div>
               <p className="text-navy leading-relaxed font-serif-display text-xl italic">
-                Real Rover reviews from Camilla's happy clients are on their way
-                — coming soon.
+                Real Rover reviews from Camilla's happy clients are on their way.
+                Coming soon.
               </p>
               <figcaption className="mt-6 text-sm text-navy-soft">
                 In the meantime, you can read every review on her{" "}
@@ -515,7 +515,7 @@ function Landing() {
               Let's Plan Your Pup's Next Adventure
             </h2>
             <p className="mt-4 text-navy/80 max-w-xl mx-auto">
-              Book through Rover in a few clicks — meet &amp; greet always on the house.
+              Book through Rover in a few clicks. Meet &amp; greet always on the house.
             </p>
             <div className="mt-8">
               <PillButton href={ROVER_URL} variant="primary" className="!px-10 !py-4 text-base">
