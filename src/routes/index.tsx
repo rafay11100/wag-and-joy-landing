@@ -420,8 +420,6 @@ function Landing() {
       <section id="meet" className="bg-cream">
         <div className="mx-auto max-w-5xl px-4 sm:px-6 lg:px-8 pb-20 lg:pb-28">
           <div className="relative overflow-hidden rounded-[2.5rem] bg-navy text-cream px-8 py-12 sm:p-14 lg:p-16 shadow-xl">
-            <div className="absolute -top-16 -right-16 h-64 w-64 rounded-full bg-brand-yellow opacity-40" aria-hidden />
-            <div className="absolute -bottom-16 -left-16 h-64 w-64 rounded-full bg-brand-blue opacity-40" aria-hidden />
             <div className="relative grid lg:grid-cols-[1fr_auto] gap-8 items-center">
               <div>
                 <span className="font-script text-3xl text-gold">It's on us</span>
