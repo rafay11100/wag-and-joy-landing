@@ -13,11 +13,13 @@ import {
   X,
   Quote,
   Star,
+  UserCheck,
+  BadgeCheck,
 } from "lucide-react";
 import { useState } from "react";
 import logoAsset from "@/assets/logo.jpg.asset.json";
 import heroDogAsset from "@/assets/dog-hero.webp.asset.json";
-import camillaAsset from "@/assets/camilla.webp.asset.json";
+import camillaNewAsset from "@/assets/camilla-new.jpg.asset.json";
 import camillaDogAsset from "@/assets/camilla-dog.webp.asset.json";
 import portraitAsset from "@/assets/portrait.webp.asset.json";
 import dogSitAsset from "@/assets/dog-sit.webp.asset.json";
@@ -27,7 +29,7 @@ import dogGrassAsset from "@/assets/dog-grass.webp.asset.json";
 
 const logoUrl = logoAsset.url;
 const heroDog = heroDogAsset.url;
-const camillaPhoto = camillaAsset.url;
+const camillaPhoto = camillaNewAsset.url;
 const camillaDog = camillaDogAsset.url;
 const portrait = portraitAsset.url;
 const serviceSolo = dogSitAsset.url;
@@ -36,7 +38,9 @@ const serviceDropin = dogBallAsset.url;
 const dogGrass = dogGrassAsset.url;
 
 const ROVER_URL =
-  "https://www.rover.com/members/camilla-h-wags-and-joy-pet-care-llc/";
+  "https://www.rover.com/members/camilla-h-the-most-natural-step/";
+const CONTACT_HREF = "#contact";
+const MEET_GREET_HREF = "mailto:camilla@wagsandjoy.com?subject=Free%20Meet%20%26%20Greet";
 
 export const Route = createFileRoute("/")({
   head: () => ({
@@ -66,7 +70,7 @@ const NAV = [
   { href: "#about", label: "About" },
   { href: "#services", label: "Services" },
   { href: "#meet", label: "Meet & Greet" },
-  { href: "#reviews", label: "Reviews" },
+  { href: "#reviews", label: "Testimonials" },
   { href: "#area", label: "Service Area" },
   { href: "#contact", label: "Contact" },
 ];
@@ -193,7 +197,7 @@ function Landing() {
               ))}
             </nav>
             <div className="hidden lg:block">
-              <PillButton href={ROVER_URL} variant="gold" className="!py-2.5 !px-6">
+              <PillButton href={CONTACT_HREF} variant="gold" className="!py-2.5 !px-6">
                 Book Now
               </PillButton>
             </div>
@@ -217,7 +221,7 @@ function Landing() {
                   {n.label}
                 </a>
               ))}
-              <PillButton href={ROVER_URL} variant="gold" className="mt-2 self-start">
+              <PillButton href={CONTACT_HREF} variant="gold" className="mt-2 self-start">
                 Book Now
               </PillButton>
             </div>
@@ -241,7 +245,7 @@ function Landing() {
                 deserves a walk that feels like a play date with a friend.
               </p>
               <div className="mt-8 flex flex-wrap gap-3 justify-center lg:justify-start">
-                <PillButton href={ROVER_URL} variant="primary">
+                <PillButton href={CONTACT_HREF} variant="primary">
                   Book Now
                 </PillButton>
                 <PillButton href="#services" variant="ghost">
@@ -251,6 +255,9 @@ function Landing() {
               <div className="mt-8 flex flex-wrap gap-2 justify-center lg:justify-start md:hidden">
                 <TrustBadge icon={ShieldCheck}>Fully Insured</TrustBadge>
                 <TrustBadge icon={HeartPulse}>Pet First Aid Trained</TrustBadge>
+                <TrustBadge icon={UserCheck}>Background Checked</TrustBadge>
+                <TrustBadge icon={BadgeCheck}>ID Verified</TrustBadge>
+                <TrustBadge icon={Star}>Rover Rated</TrustBadge>
               </div>
             </div>
             <div className="relative">
@@ -274,6 +281,14 @@ function Landing() {
               </div>
             </div>
           </div>
+          {/* Desktop trust badges row */}
+          <div className="hidden md:flex flex-wrap gap-2 justify-center lg:justify-start mt-10">
+            <TrustBadge icon={ShieldCheck}>Fully Insured</TrustBadge>
+            <TrustBadge icon={HeartPulse}>Pet First Aid Certified</TrustBadge>
+            <TrustBadge icon={UserCheck}>Background Checked</TrustBadge>
+            <TrustBadge icon={BadgeCheck}>ID Verified</TrustBadge>
+            <TrustBadge icon={Star}>Rover Rated</TrustBadge>
+          </div>
         </div>
         <Blob color="var(--cream-deep)" />
       </section>
@@ -292,7 +307,7 @@ function Landing() {
                   width={1024}
                   height={1024}
                   loading="lazy"
-                  className="h-full w-full object-cover"
+                  className="h-full w-full object-cover scale-150 origin-bottom"
                 />
               </div>
               <div className="hidden sm:block absolute -bottom-4 left-4 bg-cream rounded-2xl shadow-lg p-3 w-40 rotate-[-4deg]">
@@ -330,7 +345,7 @@ function Landing() {
                 {[
                   { num: "100%", label: "Insured" },
                   { num: "Red Cross", label: "Certified" },
-                  { num: "5★", label: "Rover Rated" },
+                  { num: "ID", label: "Verified" },
                 ].map((s) => (
                   <div
                     key={s.label}
@@ -419,11 +434,29 @@ function Landing() {
                 </h2>
                 <p className="mt-4 text-cream/80 max-w-xl leading-relaxed">
                   A relaxed chance to get to know you and your dog before the
-                  first walk, so everyone feels comfortable from day one.
+                  first walk, so everyone feels comfortable from day one. Call
+                  or email Camilla directly to schedule yours, no booking
+                  platform needed.
                 </p>
+                <div className="mt-6 flex flex-wrap gap-3">
+                  <a
+                    href={MEET_GREET_HREF}
+                    className="inline-flex items-center gap-2 rounded-full bg-cream/10 hover:bg-cream/20 px-4 py-2 text-sm font-semibold text-cream transition-colors"
+                  >
+                    <Mail className="h-4 w-4 text-gold" />
+                    camilla@wagsandjoy.com
+                  </a>
+                  <a
+                    href="tel:+17207389557"
+                    className="inline-flex items-center gap-2 rounded-full bg-cream/10 hover:bg-cream/20 px-4 py-2 text-sm font-semibold text-cream transition-colors"
+                  >
+                    <Phone className="h-4 w-4 text-gold" />
+                    (720) 738-9557
+                  </a>
+                </div>
               </div>
-              <PillButton href={ROVER_URL} variant="gold" className="self-start lg:self-center">
-                Schedule yours
+              <PillButton href={MEET_GREET_HREF} variant="gold" className="self-start lg:self-center">
+                Email to Schedule
               </PillButton>
             </div>
           </div>
@@ -436,39 +469,36 @@ function Landing() {
           <div className="text-center max-w-2xl mx-auto">
             <span className="font-script text-3xl text-gold">Kind words</span>
             <h2 className="mt-1 text-4xl sm:text-5xl text-navy">
-              From Happy Humans &amp; Tails
+              Testimonials
             </h2>
           </div>
-          <div className="mt-12 max-w-3xl mx-auto">
-            <figure className="relative rounded-3xl bg-cream p-8 sm:p-12 shadow-sm text-center">
-              <Quote
-                className="absolute -top-5 left-1/2 -translate-x-1/2 h-10 w-10 text-gold bg-cream-deep rounded-full p-2"
-                aria-hidden
-              />
-              <div className="flex gap-1 mb-4 justify-center">
-                {[...Array(5)].map((_, i) => (
-                  <Star key={i} className="h-4 w-4 fill-gold text-gold" />
-                ))}
-              </div>
-              <p className="text-navy leading-relaxed font-serif-display text-xl italic">
-                Real Rover reviews from Camilla's happy clients are on their way.
-                Coming soon.
-              </p>
-              <figcaption className="mt-6 text-sm text-navy-soft">
-                In the meantime, you can read every review on her{" "}
-                <a
-                  href={ROVER_URL}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="text-navy font-bold underline decoration-gold underline-offset-4 hover:text-gold"
-                >
-                  Rover profile
-                </a>
-                .
-              </figcaption>
-            </figure>
+          <div className="mt-12 grid md:grid-cols-2 gap-8 max-w-5xl mx-auto">
+            {[
+              { name: "Happy Client", quote: "Real client testimonial coming soon." },
+              { name: "Happy Client", quote: "Real client testimonial coming soon." },
+            ].map((t, i) => (
+              <figure
+                key={i}
+                className="relative rounded-3xl bg-cream p-8 sm:p-10 shadow-sm text-center"
+              >
+                <Quote
+                  className="absolute -top-5 left-1/2 -translate-x-1/2 h-10 w-10 text-gold bg-cream-deep rounded-full p-2"
+                  aria-hidden
+                />
+                <div className="flex gap-1 mb-4 justify-center">
+                  {[...Array(5)].map((_, j) => (
+                    <Star key={j} className="h-4 w-4 fill-gold text-gold" />
+                  ))}
+                </div>
+                <p className="text-navy leading-relaxed font-serif-display text-lg italic">
+                  "{t.quote}"
+                </p>
+                <figcaption className="mt-6 text-sm font-bold text-navy">
+                  {t.name}
+                </figcaption>
+              </figure>
+            ))}
           </div>
-
         </div>
       </section>
 
@@ -515,11 +545,11 @@ function Landing() {
               Let's Plan Your Pup's Next Adventure
             </h2>
             <p className="mt-4 text-navy/80 max-w-xl mx-auto">
-              Book through Rover in a few clicks. Meet &amp; greet always on the house.
+              Reach out to get started. Meet &amp; greet always on the house.
             </p>
             <div className="mt-8">
-              <PillButton href={ROVER_URL} variant="primary" className="!px-10 !py-4 text-base">
-                Book Now on Rover
+              <PillButton href={CONTACT_HREF} variant="primary" className="!px-10 !py-4 text-base">
+                Book Now
               </PillButton>
             </div>
           </div>
@@ -619,12 +649,15 @@ function Landing() {
                 Ready to Book?
               </h3>
               <p className="mt-3 text-cream/70 text-sm leading-relaxed">
-                Schedule a free meet &amp; greet and let's see if we're the
-                right fit for your dog.
+                Reach out to schedule a free meet &amp; greet and let's see if
+                we're the right fit for your dog.
               </p>
-              <div className="mt-5">
-                <PillButton href={ROVER_URL} variant="gold">
-                  Book on Rover
+              <div className="mt-5 flex flex-wrap gap-3">
+                <PillButton href="mailto:camilla@wagsandjoy.com" variant="gold">
+                  Email Camilla
+                </PillButton>
+                <PillButton href="tel:+17207389557" variant="ghost" className="!border-cream !text-cream hover:!bg-cream hover:!text-navy">
+                  Call
                 </PillButton>
               </div>
               <div className="mt-6 flex flex-wrap gap-2">
@@ -635,6 +668,14 @@ function Landing() {
                 <span className="inline-flex items-center gap-1.5 rounded-full bg-cream/10 px-3 py-1 text-xs font-semibold text-cream">
                   <HeartPulse className="h-3.5 w-3.5 text-gold" />
                   Pet First Aid
+                </span>
+                <span className="inline-flex items-center gap-1.5 rounded-full bg-cream/10 px-3 py-1 text-xs font-semibold text-cream">
+                  <UserCheck className="h-3.5 w-3.5 text-gold" />
+                  Background Checked
+                </span>
+                <span className="inline-flex items-center gap-1.5 rounded-full bg-cream/10 px-3 py-1 text-xs font-semibold text-cream">
+                  <BadgeCheck className="h-3.5 w-3.5 text-gold" />
+                  ID Verified
                 </span>
               </div>
             </div>
