@@ -296,8 +296,6 @@ function Landing() {
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 py-20 lg:py-24">
           <div className="grid lg:grid-cols-2 gap-12 lg:gap-20 items-center">
             <div className="relative order-2 lg:order-1">
-              <div className="absolute -top-6 -left-6 h-24 w-24 rounded-full bg-brand-yellow" aria-hidden />
-              <div className="absolute -bottom-6 -right-6 h-32 w-32 rounded-full bg-brand-blue" aria-hidden />
               <div className="relative aspect-square max-w-md mx-auto rounded-full overflow-hidden ring-8 ring-cream shadow-xl">
                 <img
                   src={camillaPhoto}
