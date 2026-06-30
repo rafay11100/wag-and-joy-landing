@@ -18,6 +18,7 @@ import {
 } from "lucide-react";
 import { useState } from "react";
 import logoMarkAsset from "@/assets/logo-mark.png.asset.json";
+import logoWordmarkAsset from "@/assets/logo-wordmark.png.asset.json";
 import heroDogAsset from "@/assets/dog-hero.webp.asset.json";
 import camillaNewAsset from "@/assets/camilla-new.jpg.asset.json";
 import camillaDogAsset from "@/assets/camilla-dog.webp.asset.json";
@@ -556,14 +557,13 @@ function Landing() {
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 py-16 lg:py-20">
           <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-10">
             <div>
-              <div className="leading-none">
-                <div className="font-script text-cream text-6xl sm:text-7xl">
-                  Wags and Joy
-                </div>
-                <div className="font-serif-display text-gold text-lg tracking-[0.35em] uppercase mt-2 ml-1">
-                  Pet Care
-                </div>
-              </div>
+              <img
+                src={logoWordmarkAsset.url}
+                alt="Wags and Joy Pet Care"
+                width={1920}
+                height={600}
+                className="h-24 sm:h-28 w-auto object-contain"
+              />
               <p className="mt-5 text-cream/70 leading-relaxed max-w-sm">
                 Friendly, insured, first-aid certified dog walking and drop-in
                 visits in Davison, Michigan.
