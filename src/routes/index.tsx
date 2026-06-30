@@ -563,7 +563,6 @@ function Landing() {
                 height={600}
                 className="h-24 sm:h-28 w-auto object-contain"
               />
-            </div>
               <p className="mt-5 text-cream/70 leading-relaxed max-w-sm">
                 Friendly, insured, first-aid certified dog walking and drop-in
                 visits in Davison, Michigan.
