@@ -17,7 +17,7 @@ import {
   BadgeCheck,
 } from "lucide-react";
 import { useState } from "react";
-import logoAsset from "@/assets/logo.jpg.asset.json";
+import logoMarkAsset from "@/assets/logo-mark.png.asset.json";
 import heroDogAsset from "@/assets/dog-hero.webp.asset.json";
 import camillaNewAsset from "@/assets/camilla-new.jpg.asset.json";
 import camillaDogAsset from "@/assets/camilla-dog.webp.asset.json";
@@ -27,7 +27,7 @@ import dogTrailAsset from "@/assets/dog-trail.webp.asset.json";
 import dogBallAsset from "@/assets/dog-ball.webp.asset.json";
 import dogGrassAsset from "@/assets/dog-grass.webp.asset.json";
 
-const logoUrl = logoAsset.url;
+const logoUrl = logoMarkAsset.url;
 const heroDog = heroDogAsset.url;
 const camillaPhoto = camillaNewAsset.url;
 const camillaDog = camillaDogAsset.url;
@@ -40,7 +40,8 @@ const dogGrass = dogGrassAsset.url;
 const ROVER_URL =
   "https://www.rover.com/members/camilla-h-the-most-natural-step/";
 const CONTACT_HREF = "#contact";
-const MEET_GREET_HREF = "mailto:camilla@wagsandjoy.com?subject=Free%20Meet%20%26%20Greet";
+const MEET_GREET_HREF =
+  "mailto:camilla@wagsandjoy.com?subject=Meet%20and%20Greet%20Request";
 
 export const Route = createFileRoute("/")({
   head: () => ({
@@ -555,14 +556,13 @@ function Landing() {
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 py-16 lg:py-20">
           <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-10">
             <div>
-              <div className="bg-cream rounded-2xl p-4 inline-block">
-                <img
-                  src={logoUrl}
-                  alt="Wags and Joy Pet Care"
-                  width={240}
-                  height={240}
-                  className="h-20 w-auto object-contain"
-                />
+              <div className="leading-none">
+                <div className="font-script text-cream text-6xl sm:text-7xl">
+                  Wags and Joy
+                </div>
+                <div className="font-serif-display text-gold text-lg tracking-[0.35em] uppercase mt-2 ml-1">
+                  Pet Care
+                </div>
               </div>
               <p className="mt-5 text-cream/70 leading-relaxed max-w-sm">
                 Friendly, insured, first-aid certified dog walking and drop-in
