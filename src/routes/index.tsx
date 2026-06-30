@@ -18,6 +18,7 @@ import {
 } from "lucide-react";
 import { useState } from "react";
 import logoMarkAsset from "@/assets/logo-mark.png.asset.json";
+import logoWordmarkAsset from "@/assets/logo-wordmark.png.asset.json";
 import heroDogAsset from "@/assets/dog-hero.webp.asset.json";
 import camillaNewAsset from "@/assets/camilla-new.jpg.asset.json";
 import camillaDogAsset from "@/assets/camilla-dog.webp.asset.json";
