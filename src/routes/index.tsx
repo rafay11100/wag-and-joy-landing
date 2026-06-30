@@ -556,14 +556,13 @@ function Landing() {
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 py-16 lg:py-20">
           <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-10">
             <div>
-              <div className="bg-cream rounded-2xl p-4 inline-block">
-                <img
-                  src={logoUrl}
-                  alt="Wags and Joy Pet Care"
-                  width={240}
-                  height={240}
-                  className="h-20 w-auto object-contain"
-                />
+              <div className="leading-none">
+                <div className="font-script text-cream text-6xl sm:text-7xl">
+                  Wags and Joy
+                </div>
+                <div className="font-serif-display text-gold text-lg tracking-[0.35em] uppercase mt-2 ml-1">
+                  Pet Care
+                </div>
               </div>
               <p className="mt-5 text-cream/70 leading-relaxed max-w-sm">
                 Friendly, insured, first-aid certified dog walking and drop-in
