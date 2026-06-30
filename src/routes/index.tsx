@@ -469,8 +469,8 @@ function Landing() {
           </div>
           <div className="mt-12 grid md:grid-cols-2 gap-8 max-w-5xl mx-auto">
             {[
-              { name: "Happy Client", quote: "Real client testimonial coming soon." },
-              { name: "Happy Client", quote: "Real client testimonial coming soon." },
+              { name: "Cathy F.", quote: "Camilla is mature and loving with pets. She has many years of experience caring for dogs and cats. Your fur babies will receive affectionate and reliable care from Camilla." },
+              { name: "Michael W.", quote: "Camilla Herod has a very kind heart when it comes to the care of dogs. I watched her raise her dog, Gaia, for years. There is no finer dog parent than Camilla." },
             ].map((t, i) => (
               <figure
                 key={i}
