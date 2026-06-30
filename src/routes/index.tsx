@@ -17,7 +17,7 @@ import {
   BadgeCheck,
 } from "lucide-react";
 import { useState } from "react";
-import logoAsset from "@/assets/logo.jpg.asset.json";
+import logoMarkAsset from "@/assets/logo-mark.png.asset.json";
 import heroDogAsset from "@/assets/dog-hero.webp.asset.json";
 import camillaNewAsset from "@/assets/camilla-new.jpg.asset.json";
 import camillaDogAsset from "@/assets/camilla-dog.webp.asset.json";
@@ -27,7 +27,7 @@ import dogTrailAsset from "@/assets/dog-trail.webp.asset.json";
 import dogBallAsset from "@/assets/dog-ball.webp.asset.json";
 import dogGrassAsset from "@/assets/dog-grass.webp.asset.json";
 
-const logoUrl = logoAsset.url;
+const logoUrl = logoMarkAsset.url;
 const heroDog = heroDogAsset.url;
 const camillaPhoto = camillaNewAsset.url;
 const camillaDog = camillaDogAsset.url;
@@ -40,7 +40,8 @@ const dogGrass = dogGrassAsset.url;
 const ROVER_URL =
   "https://www.rover.com/members/camilla-h-the-most-natural-step/";
 const CONTACT_HREF = "#contact";
-const MEET_GREET_HREF = "mailto:camilla@wagsandjoy.com?subject=Free%20Meet%20%26%20Greet";
+const MEET_GREET_HREF =
+  "mailto:camilla@wagsandjoy.com?subject=Meet%20and%20Greet%20Request";
 
 export const Route = createFileRoute("/")({
   head: () => ({
