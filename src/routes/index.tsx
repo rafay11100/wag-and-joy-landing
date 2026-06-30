@@ -275,7 +275,7 @@ function Landing() {
                 <PawPrint className="h-4 w-4 text-gold" />
                 <span className="text-xs font-bold text-navy">Tail-wag guaranteed</span>
               </div>
-              <div className="absolute -bottom-3 -left-2 rounded-full bg-navy text-cream px-4 py-2 shadow-lg flex items-center gap-2 -rotate-3">
+              <div className="absolute -bottom-3 -left-2 rounded-full bg-navy text-cream px-4 py-2 shadow-lg flex items-center gap-2">
                 <HeartPulse className="h-4 w-4 text-gold" />
                 <span className="text-xs font-bold">First-aid certified</span>
               </div>
