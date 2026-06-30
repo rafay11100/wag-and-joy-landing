@@ -431,8 +431,7 @@ function Landing() {
                 <p className="mt-4 text-cream/80 max-w-xl leading-relaxed">
                   A relaxed chance to get to know you and your dog before the
                   first walk, so everyone feels comfortable from day one. Call
-                  or email Camilla directly to schedule yours, no booking
-                  platform needed.
+                  or email Camilla directly to schedule your Meet and Greet.
                 </p>
                 <div className="mt-6 flex flex-wrap gap-3">
                   <a
