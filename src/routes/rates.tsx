@@ -100,7 +100,7 @@ function RatesPage() {
                 {s.desc}
               </p>
               <div className="mt-6 flex flex-col gap-2">
-                {"prices" in s ? (
+                {Array.isArray(s.prices) ? (
                   s.prices.map((tier) => (
                     <div key={tier.label} className="flex items-baseline gap-2">
                       <span className="text-sm font-medium text-navy-soft">{tier.label}:</span>
