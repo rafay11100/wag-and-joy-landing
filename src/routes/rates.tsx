@@ -99,11 +99,25 @@ function RatesPage() {
               <p className="mt-3 text-navy-soft leading-relaxed flex-1">
                 {s.desc}
               </p>
-              <div className="mt-6 flex items-baseline gap-1">
-                <span className="font-serif-display text-4xl font-bold text-navy">
-                  {s.price}
-                </span>
-                <span className="text-sm text-navy-soft">/ visit</span>
+              <div className="mt-6 flex flex-col gap-2">
+                {"prices" in s ? (
+                  s.prices.map((tier) => (
+                    <div key={tier.label} className="flex items-baseline gap-2">
+                      <span className="text-sm font-medium text-navy-soft">{tier.label}:</span>
+                      <span className="font-serif-display text-4xl font-bold text-navy">
+                        {tier.price}
+                      </span>
+                      <span className="text-sm text-navy-soft">/ visit</span>
+                    </div>
+                  ))
+                ) : (
+                  <div className="flex items-baseline gap-1">
+                    <span className="font-serif-display text-4xl font-bold text-navy">
+                      {s.price}
+                    </span>
+                    <span className="text-sm text-navy-soft">/ visit</span>
+                  </div>
+                )}
               </div>
               <a
                 href={CONTACT_HREF}
