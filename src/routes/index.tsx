@@ -38,11 +38,11 @@ const servicePack = dogTrailAsset.url;
 const serviceDropin = dogBallAsset.url;
 const dogGrass = dogGrassAsset.url;
 
-const ROVER_URL =
-  "https://www.rover.com/members/camilla-h-the-most-natural-step/";
 const CONTACT_HREF = "#contact";
 const MEET_GREET_HREF =
   "mailto:camilla@wagsandjoy.com?subject=Meet%20and%20Greet%20Request";
+const SERVICE_INQUIRY_HREF =
+  "mailto:camilla@wagsandjoy.com?subject=Service%20Inquiry";
 
 export const Route = createFileRoute("/")({
   head: () => ({
