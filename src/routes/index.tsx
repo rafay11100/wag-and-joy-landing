@@ -287,7 +287,7 @@ function Landing() {
             <TrustBadge icon={HeartPulse}>Pet First Aid Certified</TrustBadge>
             <TrustBadge icon={UserCheck}>Background Checked</TrustBadge>
             <TrustBadge icon={BadgeCheck}>ID Verified</TrustBadge>
-            <TrustBadge icon={Star}>Rover Rated</TrustBadge>
+            
           </div>
         </div>
         <Blob color="var(--cream-deep)" />
