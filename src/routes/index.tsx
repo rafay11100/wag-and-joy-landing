@@ -38,11 +38,11 @@ const servicePack = dogTrailAsset.url;
 const serviceDropin = dogBallAsset.url;
 const dogGrass = dogGrassAsset.url;
 
-const ROVER_URL =
-  "https://www.rover.com/members/camilla-h-the-most-natural-step/";
 const CONTACT_HREF = "#contact";
 const MEET_GREET_HREF =
   "mailto:camilla@wagsandjoy.com?subject=Meet%20and%20Greet%20Request";
+const SERVICE_INQUIRY_HREF =
+  "mailto:camilla@wagsandjoy.com?subject=Service%20Inquiry";
 
 export const Route = createFileRoute("/")({
   head: () => ({
@@ -71,6 +71,7 @@ export const Route = createFileRoute("/")({
 const NAV = [
   { href: "#about", label: "About" },
   { href: "#services", label: "Services" },
+  { href: "/rates", label: "Rates" },
   { href: "#meet", label: "Meet & Greet" },
   { href: "#reviews", label: "Testimonials" },
   { href: "#area", label: "Service Area" },
@@ -257,7 +258,6 @@ function Landing() {
                 <TrustBadge icon={HeartPulse}>Pet First Aid Trained</TrustBadge>
                 <TrustBadge icon={UserCheck}>Background Checked</TrustBadge>
                 <TrustBadge icon={BadgeCheck}>ID Verified</TrustBadge>
-                <TrustBadge icon={Star}>Rover Rated</TrustBadge>
               </div>
             </div>
             <div className="relative">
@@ -287,7 +287,7 @@ function Landing() {
             <TrustBadge icon={HeartPulse}>Pet First Aid Certified</TrustBadge>
             <TrustBadge icon={UserCheck}>Background Checked</TrustBadge>
             <TrustBadge icon={BadgeCheck}>ID Verified</TrustBadge>
-            <TrustBadge icon={Star}>Rover Rated</TrustBadge>
+            
           </div>
         </div>
         <Blob color="var(--cream-deep)" />
@@ -619,17 +619,6 @@ function Landing() {
                     wagsandjoy.com
                   </a>
                 </li>
-                <li>
-                  <a
-                    href={ROVER_URL}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="flex items-center gap-3 text-cream/80 hover:text-gold"
-                  >
-                    <PawPrint className="h-4 w-4 text-gold" />
-                    Rover profile
-                  </a>
-                </li>
                 <li className="flex items-center gap-3 text-cream/80">
                   <MapPin className="h-4 w-4 text-gold" />
                   Davison, Michigan
@@ -651,6 +640,21 @@ function Landing() {
                 </PillButton>
                 <PillButton href="tel:+17207389557" variant="ghost" className="!border-cream !text-cream hover:!bg-cream hover:!text-navy">
                   Call
+                </PillButton>
+              </div>
+              <div className="mt-5 rounded-2xl bg-cream/5 border border-cream/15 p-4">
+                <p className="text-xs uppercase tracking-wider text-cream/60 font-bold">
+                  Book an Appointment
+                </p>
+                <p className="mt-1 text-xs text-cream/60">
+                  Online scheduling coming soon.
+                </p>
+                <PillButton
+                  href="#contact"
+                  variant="gold"
+                  className="mt-3 !py-2.5 !px-5 opacity-70 cursor-not-allowed"
+                >
+                  Book an Appointment
                 </PillButton>
               </div>
               <div className="mt-6 flex flex-wrap gap-2">
