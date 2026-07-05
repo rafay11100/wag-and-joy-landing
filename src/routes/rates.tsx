@@ -30,19 +30,22 @@ const SERVICES = [
     icon: Clock,
     title: "30 Minute Dog Walk",
     price: "$25",
-    desc: "A brisk, happy walk with individual attention, sniff breaks, and plenty of tail wags.",
+    desc: "A fun and enriching walk in your neighborhood tailored to your dog's needs.",
   },
   {
     icon: PawPrint,
     title: "60 Minute Dog Walk",
     price: "$40",
-    desc: "A longer adventure for high-energy pups who love to explore and stretch their legs.",
+    desc: "A fun and enriching walk in your neighborhood tailored to your dog's needs.",
   },
   {
     icon: Home,
     title: "30 Minute Drop-In Pet Visit",
-    price: "$25",
-    desc: "Feeding, potty breaks, fresh water, and cuddle time while you're away.",
+    prices: [
+      { label: "Dogs", price: "$25" },
+      { label: "Cats", price: "$20" },
+    ],
+    desc: "Visit includes potty break, litter box scooping, fresh water, feeding, and lots of love and attention.",
   },
 ];
 
