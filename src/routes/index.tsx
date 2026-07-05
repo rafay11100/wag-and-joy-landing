@@ -258,7 +258,6 @@ function Landing() {
                 <TrustBadge icon={HeartPulse}>Pet First Aid Trained</TrustBadge>
                 <TrustBadge icon={UserCheck}>Background Checked</TrustBadge>
                 <TrustBadge icon={BadgeCheck}>ID Verified</TrustBadge>
-                <TrustBadge icon={Star}>Rover Rated</TrustBadge>
               </div>
             </div>
             <div className="relative">
