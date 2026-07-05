@@ -619,17 +619,6 @@ function Landing() {
                     wagsandjoy.com
                   </a>
                 </li>
-                <li>
-                  <a
-                    href={ROVER_URL}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="flex items-center gap-3 text-cream/80 hover:text-gold"
-                  >
-                    <PawPrint className="h-4 w-4 text-gold" />
-                    Rover profile
-                  </a>
-                </li>
                 <li className="flex items-center gap-3 text-cream/80">
                   <MapPin className="h-4 w-4 text-gold" />
                   Davison, Michigan
