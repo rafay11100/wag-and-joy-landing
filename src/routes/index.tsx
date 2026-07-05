@@ -642,6 +642,21 @@ function Landing() {
                   Call
                 </PillButton>
               </div>
+              <div className="mt-5 rounded-2xl bg-cream/5 border border-cream/15 p-4">
+                <p className="text-xs uppercase tracking-wider text-cream/60 font-bold">
+                  Book an Appointment
+                </p>
+                <p className="mt-1 text-xs text-cream/60">
+                  Online scheduling coming soon.
+                </p>
+                <PillButton
+                  href="#contact"
+                  variant="gold"
+                  className="mt-3 !py-2.5 !px-5 opacity-70 cursor-not-allowed"
+                >
+                  Book an Appointment
+                </PillButton>
+              </div>
               <div className="mt-6 flex flex-wrap gap-2">
                 <span className="inline-flex items-center gap-1.5 rounded-full bg-cream/10 px-3 py-1 text-xs font-semibold text-cream">
                   <ShieldCheck className="h-3.5 w-3.5 text-gold" />
