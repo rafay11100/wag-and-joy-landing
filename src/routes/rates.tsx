@@ -30,19 +30,22 @@ const SERVICES = [
     icon: Clock,
     title: "30 Minute Dog Walk",
     price: "$25",
-    desc: "A brisk, happy walk with individual attention, sniff breaks, and plenty of tail wags.",
+    desc: "A fun and enriching walk in your neighborhood tailored to your dog's needs.",
   },
   {
     icon: PawPrint,
     title: "60 Minute Dog Walk",
     price: "$40",
-    desc: "A longer adventure for high-energy pups who love to explore and stretch their legs.",
+    desc: "A fun and enriching walk in your neighborhood tailored to your dog's needs.",
   },
   {
     icon: Home,
     title: "30 Minute Drop-In Pet Visit",
-    price: "$25",
-    desc: "Feeding, potty breaks, fresh water, and cuddle time while you're away.",
+    prices: [
+      { label: "Dogs", price: "$25" },
+      { label: "Cats", price: "$20" },
+    ],
+    desc: "Visit includes potty break, litter box scooping, fresh water, feeding, and lots of love and attention.",
   },
 ];
 
@@ -96,11 +99,25 @@ function RatesPage() {
               <p className="mt-3 text-navy-soft leading-relaxed flex-1">
                 {s.desc}
               </p>
-              <div className="mt-6 flex items-baseline gap-1">
-                <span className="font-serif-display text-4xl font-bold text-navy">
-                  {s.price}
-                </span>
-                <span className="text-sm text-navy-soft">/ visit</span>
+              <div className="mt-6 flex flex-col gap-2">
+                {Array.isArray(s.prices) ? (
+                  s.prices.map((tier) => (
+                    <div key={tier.label} className="flex items-baseline gap-2">
+                      <span className="text-sm font-medium text-navy-soft">{tier.label}:</span>
+                      <span className="font-serif-display text-4xl font-bold text-navy">
+                        {tier.price}
+                      </span>
+                      <span className="text-sm text-navy-soft">/ visit</span>
+                    </div>
+                  ))
+                ) : (
+                  <div className="flex items-baseline gap-1">
+                    <span className="font-serif-display text-4xl font-bold text-navy">
+                      {s.price}
+                    </span>
+                    <span className="text-sm text-navy-soft">/ visit</span>
+                  </div>
+                )}
               </div>
               <a
                 href={CONTACT_HREF}
