@@ -228,9 +228,14 @@ function Landing() {
                   {n.label}
                 </a>
               ))}
-              <PillButton href={CONTACT_HREF} variant="gold" className="mt-2 self-start">
-                Book Now
-              </PillButton>
+              <div className="mt-2 flex flex-col gap-2 items-start">
+                <PillButton href={CLIENT_PORTAL_HREF} variant="ghost">
+                  Client Portal
+                </PillButton>
+                <PillButton href={CONTACT_HREF} variant="gold">
+                  Book Now
+                </PillButton>
+              </div>
             </div>
           )}
         </div>
