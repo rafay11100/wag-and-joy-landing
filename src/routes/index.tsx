@@ -200,7 +200,10 @@ function Landing() {
                 </a>
               ))}
             </nav>
-            <div className="hidden lg:block">
+            <div className="hidden lg:flex items-center gap-3">
+              <PillButton href={CLIENT_PORTAL_HREF} variant="ghost" className="!py-2.5 !px-5">
+                Client Portal
+              </PillButton>
               <PillButton href={CONTACT_HREF} variant="gold" className="!py-2.5 !px-6">
                 Book Now
               </PillButton>
