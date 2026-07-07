@@ -15,6 +15,8 @@ import {
   Star,
   UserCheck,
   BadgeCheck,
+  Clock,
+  Home,
 } from "lucide-react";
 import { useState } from "react";
 import logoMarkAsset from "@/assets/logo-mark.png.asset.json";
