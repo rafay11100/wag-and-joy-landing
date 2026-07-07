@@ -49,25 +49,75 @@ const MEET_GREET_HREF =
 const SERVICE_INQUIRY_HREF =
   "mailto:camilla@wagsandjoy.com?subject=Service%20Inquiry";
 
+const SITE_URL = "https://wag-and-joy-landing.lovable.app";
+const HOME_TITLE =
+  "Wags and Joy Pet Care · Friendly Dog Walking in Davison, MI";
+const HOME_DESCRIPTION =
+  "Insured, first-aid-certified dog walking and drop-in pet visits in Davison, MI. Solo walks, pack walks, cat care. Book your free meet & greet.";
+
 export const Route = createFileRoute("/")({
   head: () => ({
     meta: [
-      { title: "Wags and Joy Pet Care · Friendly Dog Walking in Davison, MI" },
-      {
-        name: "description",
-        content:
-          "Wags and Joy Pet Care offers trusted, insured, first-aid-certified dog walking and drop-in visits in Davison and the surrounding area. Book your free meet & greet today.",
-      },
-      { property: "og:title", content: "Wags and Joy Pet Care" },
-      {
-        property: "og:description",
-        content:
-          "Friendly, professional dog walking you can trust. Solo walks, pack walks, and drop-in visits in Davison, MI.",
-      },
+      { title: HOME_TITLE },
+      { name: "description", content: HOME_DESCRIPTION },
+      { property: "og:title", content: HOME_TITLE },
+      { property: "og:description", content: HOME_DESCRIPTION },
       { property: "og:type", content: "website" },
+      { property: "og:url", content: `${SITE_URL}/` },
       { property: "og:image", content: heroDogAsset.url },
       { name: "twitter:card", content: "summary_large_image" },
+      { name: "twitter:title", content: HOME_TITLE },
+      { name: "twitter:description", content: HOME_DESCRIPTION },
       { name: "twitter:image", content: heroDogAsset.url },
+    ],
+    links: [{ rel: "canonical", href: `${SITE_URL}/` }],
+    scripts: [
+      {
+        type: "application/ld+json",
+        children: JSON.stringify({
+          "@context": "https://schema.org",
+          "@type": "LocalBusiness",
+          name: "Wags and Joy Pet Care",
+          description: HOME_DESCRIPTION,
+          url: `${SITE_URL}/`,
+          image: heroDogAsset.url,
+          email: "camilla@wagsandjoy.com",
+          areaServed: "Davison, MI",
+          address: {
+            "@type": "PostalAddress",
+            addressLocality: "Davison",
+            addressRegion: "MI",
+            addressCountry: "US",
+          },
+          priceRange: "$$",
+          hasOfferCatalog: {
+            "@type": "OfferCatalog",
+            name: "Pet Care Services",
+            itemListElement: [
+              {
+                "@type": "Offer",
+                itemOffered: { "@type": "Service", name: "30 Minute Dog Walk" },
+                price: "25",
+                priceCurrency: "USD",
+              },
+              {
+                "@type": "Offer",
+                itemOffered: { "@type": "Service", name: "60 Minute Dog Walk" },
+                price: "40",
+                priceCurrency: "USD",
+              },
+              {
+                "@type": "Offer",
+                itemOffered: {
+                  "@type": "Service",
+                  name: "30 Minute Drop-In Pet Visit",
+                },
+                priceCurrency: "USD",
+              },
+            ],
+          },
+        }),
+      },
     ],
   }),
   component: Landing,
