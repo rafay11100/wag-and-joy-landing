@@ -15,6 +15,8 @@ import {
   Star,
   UserCheck,
   BadgeCheck,
+  Clock,
+  Home,
 } from "lucide-react";
 import { useState } from "react";
 import logoMarkAsset from "@/assets/logo-mark.png.asset.json";
@@ -74,7 +76,7 @@ export const Route = createFileRoute("/")({
 const NAV = [
   { href: "#about", label: "About" },
   { href: "#services", label: "Services" },
-  { href: "/rates", label: "Rates" },
+  { href: "#rates", label: "Rates" },
   { href: "#meet", label: "Meet & Greet" },
   { href: "#reviews", label: "Testimonials" },
   { href: "#area", label: "Service Area" },
@@ -440,6 +442,90 @@ function Landing() {
               </article>
             ))}
           </div>
+        </div>
+      </section>
+
+      {/* RATES */}
+      <section id="rates" className="bg-cream-deep">
+        <div className="mx-auto max-w-6xl px-4 sm:px-6 lg:px-8 py-20 lg:py-28">
+          <div className="text-center max-w-2xl mx-auto">
+            <span className="font-script text-3xl text-gold">Simple &amp; honest</span>
+            <h2 className="mt-1 text-4xl sm:text-5xl text-navy">Services and Rates</h2>
+            <p className="mt-4 text-navy-soft leading-relaxed">
+              Straightforward pricing for the care your pup deserves. Every visit
+              includes love, patience, and attention as standard.
+            </p>
+          </div>
+
+          <div className="mt-14 grid md:grid-cols-3 gap-8">
+            {[
+              {
+                icon: Clock,
+                title: "30 Minute Dog Walk",
+                price: "$25",
+                desc: "A fun and enriching walk in your neighborhood tailored to your dog's needs.",
+              },
+              {
+                icon: PawPrint,
+                title: "60 Minute Dog Walk",
+                price: "$40",
+                desc: "A fun and enriching walk in your neighborhood tailored to your dog's needs.",
+              },
+              {
+                icon: Home,
+                title: "30 Minute Drop-In Pet Visit",
+                prices: [
+                  { label: "Dogs", price: "$25" },
+                  { label: "Cats", price: "$20" },
+                ],
+                desc: "Visit includes potty break, litter box scooping, fresh water, feeding, and lots of love and attention.",
+              },
+            ].map((s) => (
+              <article
+                key={s.title}
+                className="flex flex-col rounded-3xl bg-cream p-8 shadow-sm hover:shadow-xl transition-all duration-300 hover:-translate-y-1"
+              >
+                <div className="inline-flex items-center justify-center h-14 w-14 rounded-full bg-gold/20 mb-5">
+                  <s.icon className="h-7 w-7 text-navy" />
+                </div>
+                <h3 className="text-2xl text-navy font-serif-display">{s.title}</h3>
+                <p className="mt-3 text-navy-soft leading-relaxed flex-1">
+                  {s.desc}
+                </p>
+                <div className="mt-6 flex flex-col gap-2">
+                  {Array.isArray(s.prices) ? (
+                    s.prices.map((tier) => (
+                      <div key={tier.label} className="flex items-baseline gap-2">
+                        <span className="text-sm font-medium text-navy-soft">{tier.label}:</span>
+                        <span className="font-serif-display text-4xl font-bold text-navy">
+                          {tier.price}
+                        </span>
+                        <span className="text-sm text-navy-soft">/ visit</span>
+                      </div>
+                    ))
+                  ) : (
+                    <div className="flex items-baseline gap-1">
+                      <span className="font-serif-display text-4xl font-bold text-navy">
+                        {s.price}
+                      </span>
+                      <span className="text-sm text-navy-soft">/ visit</span>
+                    </div>
+                  )}
+                </div>
+                <a
+                  href={SERVICE_INQUIRY_HREF}
+                  className="mt-6 inline-flex items-center justify-center rounded-full bg-navy text-cream px-6 py-3 text-sm font-bold uppercase tracking-wider transition-all duration-200 hover:-translate-y-0.5 hover:bg-navy-soft shadow-sm hover:shadow-md"
+                >
+                  <Mail className="h-4 w-4 mr-2" />
+                  Contact Us
+                </a>
+              </article>
+            ))}
+          </div>
+
+          <p className="mt-8 text-center text-sm text-navy-soft italic">
+            Additional rates upon request.
+          </p>
         </div>
       </section>
 
