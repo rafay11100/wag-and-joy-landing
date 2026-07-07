@@ -1,0 +1,9 @@
+# Wags and Joy Pet Care
+
+> Friendly, insured, first-aid-certified dog walking and drop-in pet visits in Davison, Michigan.
+
+Wags and Joy Pet Care is a local pet-care service run by Camilla Herod. The site introduces the service, lists walk and visit options, shares rates, and gives visitors easy ways to contact Camilla directly by email or phone.
+
+## Pages
+
+- [Home](/): Learn about Wags and Joy Pet Care, meet Camilla, review services and rates, read testimonials, and get in touch to book a free meet and greet.
