@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://wag-and-joy-landing.lovable.app/sitemap.xml
