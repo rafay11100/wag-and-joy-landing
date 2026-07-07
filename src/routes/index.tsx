@@ -38,7 +38,9 @@ const servicePack = dogTrailAsset.url;
 const serviceDropin = dogBallAsset.url;
 const dogGrass = dogGrassAsset.url;
 
-const CLIENT_PORTAL_HREF = "https://www.timetopet.com/portal";
+const NEW_CLIENTS_HREF =
+  "https://www.timetopet.com/portal/wagsandjoy/create-account";
+const EXISTING_CLIENTS_HREF = "https://www.timetopet.com/portal/wagsandjoy";
 const CONTACT_HREF = "#contact";
 const MEET_GREET_HREF =
   "mailto:camilla@wagsandjoy.com?subject=Meet%20and%20Greet%20Request";
@@ -201,8 +203,19 @@ function Landing() {
               ))}
             </nav>
             <div className="hidden lg:flex items-center gap-3">
-              <PillButton href={CLIENT_PORTAL_HREF} variant="ghost" className="!py-2.5 !px-5">
-                Client Portal
+              <PillButton
+                href={NEW_CLIENTS_HREF}
+                variant="ghost"
+                className="!py-2.5 !px-5"
+              >
+                New Clients
+              </PillButton>
+              <PillButton
+                href={EXISTING_CLIENTS_HREF}
+                variant="ghost"
+                className="!py-2.5 !px-5"
+              >
+                Existing Clients
               </PillButton>
               <PillButton href={CONTACT_HREF} variant="gold" className="!py-2.5 !px-6">
                 Book Now
@@ -229,8 +242,11 @@ function Landing() {
                 </a>
               ))}
               <div className="mt-2 flex flex-col gap-2 items-start">
-                <PillButton href={CLIENT_PORTAL_HREF} variant="ghost">
-                  Client Portal
+                <PillButton href={NEW_CLIENTS_HREF} variant="ghost">
+                  New Clients
+                </PillButton>
+                <PillButton href={EXISTING_CLIENTS_HREF} variant="ghost">
+                  Existing Clients
                 </PillButton>
                 <PillButton href={CONTACT_HREF} variant="gold">
                   Book Now
