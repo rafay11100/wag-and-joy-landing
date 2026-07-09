@@ -40,9 +40,6 @@ const servicePack = dogTrailAsset.url;
 const serviceDropin = dogBallAsset.url;
 const dogGrass = dogGrassAsset.url;
 
-const NEW_CLIENTS_HREF =
-  "https://www.timetopet.com/portal/wagsandjoy/create-account";
-const EXISTING_CLIENTS_HREF = "https://www.timetopet.com/portal/wagsandjoy";
 const CONTACT_HREF = "#contact";
 const MEET_GREET_HREF =
   "mailto:camilla@wagsandjoy.com?subject=Meet%20and%20Greet%20Request";
@@ -253,20 +250,6 @@ function Landing() {
               ))}
             </nav>
             <div className="hidden lg:flex items-center gap-3">
-              <PillButton
-                href={NEW_CLIENTS_HREF}
-                variant="ghost"
-                className="!py-2.5 !px-5"
-              >
-                New Clients
-              </PillButton>
-              <PillButton
-                href={EXISTING_CLIENTS_HREF}
-                variant="ghost"
-                className="!py-2.5 !px-5"
-              >
-                Existing Clients
-              </PillButton>
               <PillButton href={CONTACT_HREF} variant="gold" className="!py-2.5 !px-6">
                 Book Now
               </PillButton>
@@ -292,12 +275,6 @@ function Landing() {
                 </a>
               ))}
               <div className="mt-2 flex flex-col gap-2 items-start">
-                <PillButton href={NEW_CLIENTS_HREF} variant="ghost">
-                  New Clients
-                </PillButton>
-                <PillButton href={EXISTING_CLIENTS_HREF} variant="ghost">
-                  Existing Clients
-                </PillButton>
                 <PillButton href={CONTACT_HREF} variant="gold">
                   Book Now
                 </PillButton>
@@ -799,21 +776,6 @@ function Landing() {
                 </PillButton>
                 <PillButton href="tel:+17207389557" variant="ghost" className="!border-cream !text-cream hover:!bg-cream hover:!text-navy">
                   Call
-                </PillButton>
-              </div>
-              <div className="mt-5 rounded-2xl bg-cream/5 border border-cream/15 p-4">
-                <p className="text-xs uppercase tracking-wider text-cream/60 font-bold">
-                  Book an Appointment
-                </p>
-                <p className="mt-1 text-xs text-cream/60">
-                  Online scheduling coming soon.
-                </p>
-                <PillButton
-                  href="#contact"
-                  variant="gold"
-                  className="mt-3 !py-2.5 !px-5 opacity-70 cursor-not-allowed"
-                >
-                  Book an Appointment
                 </PillButton>
               </div>
               <div className="mt-6 flex flex-wrap gap-2">
