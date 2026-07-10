@@ -685,7 +685,7 @@ function Landing() {
               Reach out to get started. Meet &amp; greet always on the house.
             </p>
             <div className="mt-8">
-              <PillButton href={CONTACT_HREF} variant="primary" className="!px-10 !py-4 text-base">
+              <PillButton href="mailto:camilla@wagsandjoy.com" variant="primary" className="!px-10 !py-4 text-base">
                 Book Now
               </PillButton>
             </div>
