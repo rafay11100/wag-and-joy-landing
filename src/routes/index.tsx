@@ -250,7 +250,7 @@ function Landing() {
               ))}
             </nav>
             <div className="hidden lg:flex items-center gap-3">
-              <PillButton href={CONTACT_HREF} variant="gold" className="!py-2.5 !px-6">
+              <PillButton href="mailto:camilla@wagsandjoy.com" variant="gold" className="!py-2.5 !px-6">
                 Book Now
               </PillButton>
             </div>
@@ -275,7 +275,7 @@ function Landing() {
                 </a>
               ))}
               <div className="mt-2 flex flex-col gap-2 items-start">
-                <PillButton href={CONTACT_HREF} variant="gold">
+                <PillButton href="mailto:camilla@wagsandjoy.com" variant="gold">
                   Book Now
                 </PillButton>
               </div>
