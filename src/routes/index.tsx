@@ -617,9 +617,9 @@ function Landing() {
           </div>
           <div className="mt-12 grid md:grid-cols-3 gap-8 max-w-6xl mx-auto">
             {[
-              { name: "Cathy F.", quote: "Camilla is mature and loving with pets. She has many years of experience caring for dogs and cats. Your fur babies will receive affectionate and reliable care from Camilla." },
-              { name: "Michael W.", quote: "Camilla Herod has a very kind heart when it comes to the care of dogs. I watched her raise her dog, Gaia, for years. There is no finer dog parent than Camilla." },
-              { name: "Leslie T.", quote: "Camilla is a kind, caring individual who has considerable understanding of animal behavior. She is warm and affectionate with those in her care and pays close attention to owners’ feeding directions and routines. She’s a trustworthy and respectful housesitter as well." },
+              { name: "Cathy F.", date: undefined, quote: "Camilla is mature and loving with pets. She has many years of experience caring for dogs and cats. Your fur babies will receive affectionate and reliable care from Camilla." },
+              { name: "Michael W.", date: undefined, quote: "Camilla Herod has a very kind heart when it comes to the care of dogs. I watched her raise her dog, Gaia, for years. There is no finer dog parent than Camilla." },
+              { name: "Leslie T.", date: undefined, quote: "Camilla is a kind, caring individual who has considerable understanding of animal behavior. She is warm and affectionate with those in her care and pays close attention to owners' feeding directions and routines. She's a trustworthy and respectful housesitter as well." },
             ].map((t, i) => (
               <figure
                 key={i}
