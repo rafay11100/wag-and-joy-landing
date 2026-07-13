@@ -250,6 +250,12 @@ function Landing() {
               ))}
             </nav>
             <div className="hidden lg:flex items-center gap-3">
+              <PillButton href="https://www.timetopet.com/portal/wagsandjoy/create-account" variant="gold" className="!py-2.5 !px-6">
+                New Clients
+              </PillButton>
+              <PillButton href="https://www.timetopet.com/portal/wagsandjoy" variant="ghost" className="!py-2.5 !px-6">
+                Existing Clients
+              </PillButton>
               <PillButton href="mailto:camilla@wagsandjoy.com" variant="gold" className="!py-2.5 !px-6">
                 Book Now
               </PillButton>
@@ -275,6 +281,12 @@ function Landing() {
                 </a>
               ))}
               <div className="mt-2 flex flex-col gap-2 items-start">
+                <PillButton href="https://www.timetopet.com/portal/wagsandjoy/create-account" variant="gold">
+                  New Clients
+                </PillButton>
+                <PillButton href="https://www.timetopet.com/portal/wagsandjoy" variant="ghost">
+                  Existing Clients
+                </PillButton>
                 <PillButton href="mailto:camilla@wagsandjoy.com" variant="gold">
                   Book Now
                 </PillButton>
@@ -607,7 +619,7 @@ function Landing() {
             {[
               { name: "Cathy F.", quote: "Camilla is mature and loving with pets. She has many years of experience caring for dogs and cats. Your fur babies will receive affectionate and reliable care from Camilla." },
               { name: "Michael W.", quote: "Camilla Herod has a very kind heart when it comes to the care of dogs. I watched her raise her dog, Gaia, for years. There is no finer dog parent than Camilla." },
-              { name: "Leslie T.", date: "Jul 08, 2026", quote: "Camilla is a kind, caring individual who has considerable understanding of animal behavior. She is warm and affectionate with those in her care and pays close attention to owners’ feeding directions and routines. She’s a trustworthy and respectful housesitter as well." },
+              { name: "Leslie T.", quote: "Camilla is a kind, caring individual who has considerable understanding of animal behavior. She is warm and affectionate with those in her care and pays close attention to owners’ feeding directions and routines. She’s a trustworthy and respectful housesitter as well." },
             ].map((t, i) => (
               <figure
                 key={i}
@@ -711,7 +723,7 @@ function Landing() {
               </p>
               <div className="mt-6 flex gap-3">
                 <a
-                  href="https://facebook.com"
+                  href="https://www.facebook.com/wagsandjoy"
                   target="_blank"
                   rel="noopener noreferrer"
                   aria-label="Facebook"
@@ -720,7 +732,7 @@ function Landing() {
                   <Facebook className="h-5 w-5" />
                 </a>
                 <a
-                  href="https://instagram.com"
+                  href="https://www.instagram.com/wagsandjoy"
                   target="_blank"
                   rel="noopener noreferrer"
                   aria-label="Instagram"
